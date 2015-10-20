@@ -1,0 +1,11 @@
+**/*.DS_Store
+.DS_Store
+node_modules
+dist
+*.bak
+.tmp
+.sass-cache
+app/components
+.idea
+*.iml
+*.xcuserstate
