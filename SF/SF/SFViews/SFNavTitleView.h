@@ -19,6 +19,6 @@
 @property (nonatomic, weak) id<SFNavTitleViewDelegate> delegate;
 @property (nonatomic, assign) NSInteger curPage; //0 1 2
 
-- (void)toPage:(NSInteger)page;
 
+- (void)resetButtonsByCurPage ;
 @end

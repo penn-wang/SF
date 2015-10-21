@@ -43,14 +43,13 @@
     [_thirdBtn setTitle:@"明天" forState:UIControlStateNormal];
     _thirdBtn.tag = 10000+2;
     [self addSubview:_thirdBtn];
+    
     self.curPage = 1;
+    [self resetButtonsByCurPage];
 }
 
-- (void)setCurPage:(NSInteger)curPage {
-    if(curPage<0 || curPage>2 || curPage==self.curPage) {
-        return;
-    }
-    switch (curPage) {
+- (void)resetButtonsByCurPage {
+    switch (self.curPage) {
         case 0:
             [_firstBtn setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
             [_secondBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -69,32 +68,35 @@
         default:
             break;
     }
-    [self toPage:curPage];
 }
 
 - (void)clickOnBtn:(id)sender {
     UIButton *btn = (UIButton *) sender;
+    if(btn.tag == 10000+self.curPage) {
+        return;
+    }
     switch (btn.tag) {
         case 10000:
-            [self toPage:0];
+            self.curPage = 0;
+            [self resetButtonsByCurPage];
             break;
         case 10001:
-            [self toPage:1];
+            self.curPage = 1;
+            [self resetButtonsByCurPage];
             break;
         case 10002:
-            [self toPage:2];
+            self.curPage = 2;
+            [self resetButtonsByCurPage];
             break;
         default:
             break;
     }
+    [self toCurPage];
 }
 
-- (void)toPage:(NSInteger)page {
-    if(page<0 || page>2 || page==self.curPage) {
-        return;
-    }
+- (void)toCurPage{
     if(self.delegate && [self.delegate respondsToSelector:@selector(navTitleDidToPage:)]) {
-        [self.delegate navTitleDidToPage:self.curPage];
+        [self.delegate navTitleDidToPage:_curPage];
     }
 }
 

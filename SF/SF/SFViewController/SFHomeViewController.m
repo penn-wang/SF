@@ -7,8 +7,12 @@
 //
 
 #import "SFHomeViewController.h"
+#import "SFNavTitleView.h"
 
-@interface SFHomeViewController()  <UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface SFHomeViewController()  <UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate
+,SFNavTitleViewDelegate>
+
+@property (nonatomic, strong) SFNavTitleView *navTitleView;
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 
@@ -23,15 +27,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    self.title = @"今天";
-    self.navigationItem.titleView = [self createNavTitleView];
+    [self initNavTitleView];
     [self initScrollerView];
 }
 
-- (UIView *)createNavTitleView {
-    UIView *navView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.screenWidth/2, 44.0f)];
-    navView.backgroundColor = [UIColor greenColor];
-    return navView;
+- (void)initNavTitleView {
+//    self.navigationItem.titleView =;
+    _navTitleView = [[SFNavTitleView alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
+    _navTitleView.delegate = self;
+    self.navigationItem.titleView = _navTitleView;
 }
 
 - (void)initScrollerView {
@@ -46,7 +50,45 @@
     [self.scrollView addSubview:_yesterdayTableView];
     [self.scrollView addSubview:_todayTableView];
     [self.scrollView addSubview:_tomorrowTableView];
+    
+    [self scrollToPage:self.navTitleView.curPage animated:NO];
 }
+
+#pragma -mark -
+#pragma -mark -navTitleView
+- (void)navTitleDidToPage:(NSInteger)page {
+    switch (page) {
+        case 0:
+            [self scrollToPage:0 animated:YES];
+            break;
+        case 1:
+            [self scrollToPage:1 animated:YES];
+            break;
+        case 2:
+            [self scrollToPage:2 animated:YES];
+            break;
+        default:
+            break;
+    }
+}
+
+#pragma -mark -
+#pragma -mark -navTitleView
+
+- (void)scrollToPage:(NSInteger)aPage animated:(BOOL)animated{
+
+    CGFloat offsetY = self.scrollView.contentOffset.y;
+    [self.scrollView setContentOffset:CGPointMake(aPage*self.screenWidth, offsetY) animated:animated];
+}
+
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    CGFloat offsetX = self.scrollView.contentOffset.x;
+    NSInteger scrollPage = offsetX / self.screenWidth;
+    self.navTitleView.curPage = scrollPage;
+    [self.navTitleView resetButtonsByCurPage];
+}
+
 
 #pragma -mark -
 #pragma -mark -tableView
