@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "SFHomeViewController.h"
 
 #import "SFDB/SFDBWorker.h"
 @interface AppDelegate ()
@@ -20,11 +20,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    self.rootVC = [[ViewController alloc] init];
-    
+    self.homeVC = [[SFHomeViewController alloc] init];
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:self.homeVC];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.rootVC;
-    self.window.backgroundColor = [UIColor lightGrayColor];
+    self.window.rootViewController = navVC;
     [self.window makeKeyAndVisible];
     
     [[SFDBWorker sharedDBWorker] openDB];

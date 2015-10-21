@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-@class ViewController;
+@class SFHomeViewController;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) ViewController *rootVC;
+@property (strong, nonatomic) SFHomeViewController *homeVC;
 
 @end
 
