@@ -20,6 +20,7 @@
 		0FA9369E1BD636C60024D04D /* SFHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA9369D1BD636C60024D04D /* SFHomeViewController.m */; settings = {ASSET_TAGS = (); }; };
 		0FA936A21BD63F2E0024D04D /* SFUICreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936A11BD63F2E0024D04D /* SFUICreator.m */; settings = {ASSET_TAGS = (); }; };
 		0FA936A61BD644720024D04D /* SFNavTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936A51BD644720024D04D /* SFNavTitleView.m */; settings = {ASSET_TAGS = (); }; };
+		0FA936A91BD76F910024D04D /* SFUIDefine.h in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936A81BD76F910024D04D /* SFUIDefine.h */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		0FA936A11BD63F2E0024D04D /* SFUICreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFUICreator.m; path = SFHelper/SFUICreator.m; sourceTree = "<group>"; };
 		0FA936A41BD644720024D04D /* SFNavTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFNavTitleView.h; path = SFViews/SFNavTitleView.h; sourceTree = "<group>"; };
 		0FA936A51BD644720024D04D /* SFNavTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFNavTitleView.m; path = SFViews/SFNavTitleView.m; sourceTree = "<group>"; };
+		0FA936A81BD76F910024D04D /* SFUIDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFUIDefine.h; path = SFCommon/SFUIDefine.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		0F61621E1B9BE61B00E07628 /* SF */ = {
 			isa = PBXGroup;
 			children = (
+				0FA936A71BD76EE60024D04D /* SFCommon */,
 				0FA936A31BD644510024D04D /* SFViews */,
 				0FA9369F1BD63F0E0024D04D /* SFHelper */,
 				0FA936951BD635C50024D04D /* SFViewController */,
@@ -155,6 +158,14 @@
 				0FA936A51BD644720024D04D /* SFNavTitleView.m */,
 			);
 			name = SFViews;
+			sourceTree = "<group>";
+		};
+		0FA936A71BD76EE60024D04D /* SFCommon */ = {
+			isa = PBXGroup;
+			children = (
+				0FA936A81BD76F910024D04D /* SFUIDefine.h */,
+			);
+			name = SFCommon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +244,7 @@
 				0FA936A61BD644720024D04D /* SFNavTitleView.m in Sources */,
 				0F2985CA1B9D860000D13E97 /* SFDBWorker.m in Sources */,
 				0F6162281B9BE61B00E07628 /* ViewController.m in Sources */,
+				0FA936A91BD76F910024D04D /* SFUIDefine.h in Sources */,
 				0F6162251B9BE61B00E07628 /* AppDelegate.m in Sources */,
 				0F2985D41B9D8A3300D13E97 /* SFDBHelper.m in Sources */,
 				0F6162221B9BE61B00E07628 /* main.m in Sources */,

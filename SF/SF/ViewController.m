@@ -19,14 +19,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     self.createTableBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.createTableBtn setTitle:@"创建表" forState:UIControlStateNormal];
     self.createTableBtn.frame = CGRectMake(100, 100, 200, 50);
     self.createTableBtn.backgroundColor = [UIColor greenColor];
     [self.createTableBtn addTarget:self action:@selector(createTable:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.createTableBtn];
-    
 }
 
 - (void)createTable:(__unused id) sender {

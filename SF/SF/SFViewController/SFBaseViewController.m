@@ -16,11 +16,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.screenWidth = [UIScreen mainScreen].bounds.size.width;
     self.screenHeight = [UIScreen mainScreen].bounds.size.height;
     self.contentHeight = self.screenHeight-64.0f;
+}
 
+#pragma -mark -
+#pragma -mark -conmon Nav
+
+- (void)rightNavItemSet {
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 64, 44)];
+    [button addTarget:self action:@selector(didClickOnRigthNavItem) forControlEvents:UIControlEventTouchUpInside];
+    button.titleLabel.font = NAV_TITLE_FONT;
+    [button setTitle:@"设置" forState:UIControlStateNormal];
+    [button setTitleColor:NAV_TITLE_COLOR forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+}
+
+- (void)didClickOnRigthNavItem {
+    //请重写此方法
 }
 
 - (void)didReceiveMemoryWarning {

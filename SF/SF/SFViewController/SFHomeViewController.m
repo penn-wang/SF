@@ -9,6 +9,8 @@
 #import "SFHomeViewController.h"
 #import "SFNavTitleView.h"
 
+#import "ViewController.h"
+
 @interface SFHomeViewController()  <UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate
 ,SFNavTitleViewDelegate>
 
@@ -32,10 +34,20 @@
 }
 
 - (void)initNavTitleView {
-//    self.navigationItem.titleView =;
-    _navTitleView = [[SFNavTitleView alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
+    _navTitleView = [[SFNavTitleView alloc] initWithFrame:CGRectMake(0, 0, self.screenWidth/2, 44)];
     _navTitleView.delegate = self;
-    self.navigationItem.titleView = _navTitleView;
+//    self.navigationItem.titleView = _navTitleView;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_navTitleView];
+    [self rightNavItemSet];
+}
+
+- (void)didClickOnRigthNavItem {
+    ViewController *v = [[ViewController alloc] init];
+    [self.navigationController pushViewController:v animated:YES];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
 }
 
 - (void)initScrollerView {
