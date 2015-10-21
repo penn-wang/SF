@@ -13,4 +13,8 @@
 
 + (UITableView *)SFCommonTableView:(id)delegate;
 + (UITableView *)SFCommonTableView:(id)delegate frame:(CGRect)frame;
+
++ (UITextView *)SFCommonTextView:(id)delegate;
++ (UITextView *)SFCommonTextView:(id)delegate frame:(CGRect)frame;
+
 @end

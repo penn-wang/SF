@@ -25,4 +25,22 @@
     return table;
 }
 
++ (UITextView *)SFCommonTextView:(id)delegate {
+    UITextView *textView = [[UITextView alloc] init];
+    textView.textColor = [UIColor darkTextColor];
+    textView.font =  TEXT_NORMAL_FONT;
+    textView.delegate = delegate;
+    textView.backgroundColor = [UIColor whiteColor];
+    textView.returnKeyType = UIReturnKeyDefault;
+    textView.keyboardType = UIKeyboardTypeDefault;
+    textView.scrollEnabled = YES;
+    return textView;
+}
+
++ (UITextView *)SFCommonTextView:(id)delegate frame:(CGRect)frame {
+    UITextView *textView = [[self class] SFCommonTextView:delegate];
+    textView.frame = frame;
+    return textView;
+}
+
 @end

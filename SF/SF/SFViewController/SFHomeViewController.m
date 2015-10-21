@@ -8,8 +8,7 @@
 
 #import "SFHomeViewController.h"
 #import "SFNavTitleView.h"
-
-#import "ViewController.h"
+#import "SFNewViewController.h"
 
 @interface SFHomeViewController()  <UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate
 ,SFNavTitleViewDelegate>
@@ -36,14 +35,14 @@
 - (void)initNavTitleView {
     _navTitleView = [[SFNavTitleView alloc] initWithFrame:CGRectMake(0, 0, self.screenWidth/2, 44)];
     _navTitleView.delegate = self;
-//    self.navigationItem.titleView = _navTitleView;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_navTitleView];
     [self rightNavItemSet];
 }
 
 - (void)didClickOnRigthNavItem {
-    ViewController *v = [[ViewController alloc] init];
-    [self.navigationController pushViewController:v animated:YES];
+    SFNewViewController *vc = [[SFNewViewController alloc] init];
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:navVC animated:YES completion:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -51,7 +50,7 @@
 }
 
 - (void)initScrollerView {
-    _scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.navOffset, self.screenWidth, self.contentHeight)];
     _scrollView.contentSize = CGSizeMake(self.screenWidth*3, self.contentHeight);
     _scrollView.pagingEnabled = true;
     _scrollView.delegate = self;

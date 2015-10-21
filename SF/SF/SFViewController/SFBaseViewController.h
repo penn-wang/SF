@@ -13,7 +13,11 @@
 @property (nonatomic, assign) CGFloat screenWidth;
 @property (nonatomic, assign) CGFloat screenHeight;
 @property (nonatomic, assign) CGFloat contentHeight;
+@property (nonatomic, assign) CGFloat navOffset;
+
+- (void)rightNavItemWithName:(NSString *)name;
 
 - (void)rightNavItemSet;
-
+- (void)leftNavItemBack;
+- (void)leftNavItemCancel;
 @end
