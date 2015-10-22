@@ -12,7 +12,6 @@
 		0F2985D41B9D8A3300D13E97 /* SFDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2985D31B9D8A3300D13E97 /* SFDBHelper.m */; };
 		0F6162221B9BE61B00E07628 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6162211B9BE61B00E07628 /* main.m */; };
 		0F6162251B9BE61B00E07628 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6162241B9BE61B00E07628 /* AppDelegate.m */; };
-		0F6162281B9BE61B00E07628 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6162271B9BE61B00E07628 /* ViewController.m */; };
 		0F61622D1B9BE61B00E07628 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F61622C1B9BE61B00E07628 /* Images.xcassets */; };
 		0F6162301B9BE61B00E07628 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F61622E1B9BE61B00E07628 /* LaunchScreen.xib */; };
 		0FA936941BD630CC0024D04D /* RD in Resources */ = {isa = PBXBuildFile; fileRef = 0FA936931BD630CC0024D04D /* RD */; settings = {ASSET_TAGS = (); }; };
@@ -22,6 +21,12 @@
 		0FA936A61BD644720024D04D /* SFNavTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936A51BD644720024D04D /* SFNavTitleView.m */; settings = {ASSET_TAGS = (); }; };
 		0FA936AC1BD792430024D04D /* SFNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936AB1BD792430024D04D /* SFNewViewController.m */; settings = {ASSET_TAGS = (); }; };
 		0FA936B31BD7AD2E0024D04D /* UIView+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936B21BD7AD2E0024D04D /* UIView+Ext.m */; settings = {ASSET_TAGS = (); }; };
+		0FF841EA1BD8C0F200048DC7 /* SFPhotoGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841E91BD8C0F200048DC7 /* SFPhotoGroupViewController.m */; settings = {ASSET_TAGS = (); }; };
+		0FF841EC1BD8C15800048DC7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF841EB1BD8C15800048DC7 /* AssetsLibrary.framework */; };
+		0FF841EF1BD8C80F00048DC7 /* SFPhotoGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841EE1BD8C80F00048DC7 /* SFPhotoGroupCell.m */; settings = {ASSET_TAGS = (); }; };
+		0FF841F21BD8D3D000048DC7 /* SFPhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841F11BD8D3D000048DC7 /* SFPhotoPickerViewController.m */; settings = {ASSET_TAGS = (); }; };
+		0FF841F61BD8DF5500048DC7 /* SFPhotoPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841F51BD8DF5500048DC7 /* SFPhotoPickerCell.m */; settings = {ASSET_TAGS = (); }; };
+		0FF841F91BD8EEF900048DC7 /* SFClickImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841F81BD8EEF900048DC7 /* SFClickImageView.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,8 +42,6 @@
 		0F6162211B9BE61B00E07628 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0F6162231B9BE61B00E07628 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0F6162241B9BE61B00E07628 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0F6162261B9BE61B00E07628 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0F6162271B9BE61B00E07628 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0F61622C1B9BE61B00E07628 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0F61622F1B9BE61B00E07628 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0FA936931BD630CC0024D04D /* RD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RD; sourceTree = "<group>"; };
@@ -55,6 +58,18 @@
 		0FA936B11BD7AD2E0024D04D /* UIView+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Ext.h"; path = "SFCategory/UIView+Ext.h"; sourceTree = "<group>"; };
 		0FA936B21BD7AD2E0024D04D /* UIView+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Ext.m"; path = "SFCategory/UIView+Ext.m"; sourceTree = "<group>"; };
 		0FF841E61BD8C02A00048DC7 /* SFUIDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFUIDefine.h; path = SFHelper/SFUIDefine.h; sourceTree = "<group>"; };
+		0FF841E81BD8C0F200048DC7 /* SFPhotoGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFPhotoGroupViewController.h; path = SFCommon/SFPhotoPicker/SFPhotoGroupViewController.h; sourceTree = "<group>"; };
+		0FF841E91BD8C0F200048DC7 /* SFPhotoGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFPhotoGroupViewController.m; path = SFCommon/SFPhotoPicker/SFPhotoGroupViewController.m; sourceTree = "<group>"; };
+		0FF841EB1BD8C15800048DC7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		0FF841ED1BD8C80F00048DC7 /* SFPhotoGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFPhotoGroupCell.h; path = SFCommon/SFPhotoPicker/SFPhotoGroupCell.h; sourceTree = "<group>"; };
+		0FF841EE1BD8C80F00048DC7 /* SFPhotoGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFPhotoGroupCell.m; path = SFCommon/SFPhotoPicker/SFPhotoGroupCell.m; sourceTree = "<group>"; };
+		0FF841F01BD8D3D000048DC7 /* SFPhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFPhotoPickerViewController.h; path = SFCommon/SFPhotoPicker/SFPhotoPickerViewController.h; sourceTree = "<group>"; };
+		0FF841F11BD8D3D000048DC7 /* SFPhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFPhotoPickerViewController.m; path = SFCommon/SFPhotoPicker/SFPhotoPickerViewController.m; sourceTree = "<group>"; };
+		0FF841F31BD8DEC600048DC7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		0FF841F41BD8DF5500048DC7 /* SFPhotoPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFPhotoPickerCell.h; path = SFCommon/SFPhotoPicker/SFPhotoPickerCell.h; sourceTree = "<group>"; };
+		0FF841F51BD8DF5500048DC7 /* SFPhotoPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFPhotoPickerCell.m; path = SFCommon/SFPhotoPicker/SFPhotoPickerCell.m; sourceTree = "<group>"; };
+		0FF841F71BD8EEF900048DC7 /* SFClickImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFClickImageView.h; path = SFHelper/SFClickImageView.h; sourceTree = "<group>"; };
+		0FF841F81BD8EEF900048DC7 /* SFClickImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFClickImageView.m; path = SFHelper/SFClickImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FF841EC1BD8C15800048DC7 /* AssetsLibrary.framework in Frameworks */,
 				0F2985CC1B9D864300D13E97 /* libsqlite3.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +88,7 @@
 		0F2985CD1B9D865C00D13E97 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				0FF841EB1BD8C15800048DC7 /* AssetsLibrary.framework */,
 				0F2985CB1B9D864300D13E97 /* libsqlite3.0.dylib */,
 			);
 			name = framework;
@@ -105,8 +122,6 @@
 				0F6162451B9BE63C00E07628 /* SFDB */,
 				0F6162231B9BE61B00E07628 /* AppDelegate.h */,
 				0F6162241B9BE61B00E07628 /* AppDelegate.m */,
-				0F6162261B9BE61B00E07628 /* ViewController.h */,
-				0F6162271B9BE61B00E07628 /* ViewController.m */,
 				0F61622C1B9BE61B00E07628 /* Images.xcassets */,
 				0F61622E1B9BE61B00E07628 /* LaunchScreen.xib */,
 				0F61621F1B9BE61B00E07628 /* Supporting Files */,
@@ -156,6 +171,8 @@
 				0FF841E61BD8C02A00048DC7 /* SFUIDefine.h */,
 				0FA936A01BD63F2E0024D04D /* SFUICreator.h */,
 				0FA936A11BD63F2E0024D04D /* SFUICreator.m */,
+				0FF841F71BD8EEF900048DC7 /* SFClickImageView.h */,
+				0FF841F81BD8EEF900048DC7 /* SFClickImageView.m */,
 			);
 			name = SFHelper;
 			sourceTree = "<group>";
@@ -172,6 +189,7 @@
 		0FA936A71BD76EE60024D04D /* SFCommon */ = {
 			isa = PBXGroup;
 			children = (
+				0FF841E71BD8C0AF00048DC7 /* SFPhotoPicker */,
 			);
 			name = SFCommon;
 			sourceTree = "<group>";
@@ -183,6 +201,21 @@
 				0FA936B21BD7AD2E0024D04D /* UIView+Ext.m */,
 			);
 			name = SFCategory;
+			sourceTree = "<group>";
+		};
+		0FF841E71BD8C0AF00048DC7 /* SFPhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				0FF841E81BD8C0F200048DC7 /* SFPhotoGroupViewController.h */,
+				0FF841E91BD8C0F200048DC7 /* SFPhotoGroupViewController.m */,
+				0FF841ED1BD8C80F00048DC7 /* SFPhotoGroupCell.h */,
+				0FF841EE1BD8C80F00048DC7 /* SFPhotoGroupCell.m */,
+				0FF841F01BD8D3D000048DC7 /* SFPhotoPickerViewController.h */,
+				0FF841F11BD8D3D000048DC7 /* SFPhotoPickerViewController.m */,
+				0FF841F41BD8DF5500048DC7 /* SFPhotoPickerCell.h */,
+				0FF841F51BD8DF5500048DC7 /* SFPhotoPickerCell.m */,
+			);
+			name = SFPhotoPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,12 +293,16 @@
 				0FA9369E1BD636C60024D04D /* SFHomeViewController.m in Sources */,
 				0FA936A61BD644720024D04D /* SFNavTitleView.m in Sources */,
 				0F2985CA1B9D860000D13E97 /* SFDBWorker.m in Sources */,
-				0F6162281B9BE61B00E07628 /* ViewController.m in Sources */,
+				0FF841F21BD8D3D000048DC7 /* SFPhotoPickerViewController.m in Sources */,
 				0F6162251B9BE61B00E07628 /* AppDelegate.m in Sources */,
+				0FF841EF1BD8C80F00048DC7 /* SFPhotoGroupCell.m in Sources */,
 				0FA936AC1BD792430024D04D /* SFNewViewController.m in Sources */,
 				0FA936B31BD7AD2E0024D04D /* UIView+Ext.m in Sources */,
+				0FF841F61BD8DF5500048DC7 /* SFPhotoPickerCell.m in Sources */,
 				0F2985D41B9D8A3300D13E97 /* SFDBHelper.m in Sources */,
 				0F6162221B9BE61B00E07628 /* main.m in Sources */,
+				0FF841EA1BD8C0F200048DC7 /* SFPhotoGroupViewController.m in Sources */,
+				0FF841F91BD8EEF900048DC7 /* SFClickImageView.m in Sources */,
 				0FA936A21BD63F2E0024D04D /* SFUICreator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +314,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0F61622F1B9BE61B00E07628 /* Base */,
+				0FF841F31BD8DEC600048DC7 /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

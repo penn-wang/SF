@@ -17,6 +17,7 @@
 
     #import "SFUIDefine.h"
     #import "SFUICreator.h"
+    #import "UIView+Ext.h"
 #endif
 
 

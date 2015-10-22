@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface SFUICreator : NSObject
+@interface SFUICreator : NSObject {
+    
+}
 
 + (UITableView *)SFCommonTableView:(id)delegate;
 + (UITableView *)SFCommonTableView:(id)delegate frame:(CGRect)frame;
@@ -17,4 +19,6 @@
 + (UITextView *)SFCommonTextView:(id)delegate;
 + (UITextView *)SFCommonTextView:(id)delegate frame:(CGRect)frame;
 
++ (UIView *)SFCommonLine:(CGPoint)startPoint;
++ (UIView *)SFCommonLine;
 @end

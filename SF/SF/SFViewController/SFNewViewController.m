@@ -7,6 +7,7 @@
 //
 
 #import "SFNewViewController.h"
+#import "SFPhotoGroupViewController.h"
 
 @interface SFNewViewController ()<UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -44,8 +45,9 @@
         [self takePhoto];
     }]];
     [alertController addAction: [UIAlertAction actionWithTitle: @"从相册选取" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-        //处理点击从相册选取
-        [self LocalPhoto];
+//        [self LocalPhoto];
+        SFPhotoGroupViewController *photoGroup = [[SFPhotoGroupViewController alloc] init];
+        [self.navigationController pushViewController:photoGroup animated:YES];
     }]];
     [alertController addAction: [UIAlertAction actionWithTitle: @"取消" style: UIAlertActionStyleCancel handler:nil]];
     
@@ -87,6 +89,8 @@
 
 //当选择一张图片后进入这里
 -(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    NSLog(@"info : %@", info.description);
     
     NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
     //当选择的类型是图片

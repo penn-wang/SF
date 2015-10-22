@@ -43,4 +43,18 @@
     return textView;
 }
 
++ (UIView *)SFCommonLine:(CGPoint)startPoint {
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    UIView *v = [[self class] SFCommonLine];
+    v.frame = CGRectMake(startPoint.x, startPoint.y, screenWidth-startPoint.x, 1);
+    v.backgroundColor = [UIColor grayColor];
+    return v;
+}
+
++ (UIView *)SFCommonLine {
+    UIView *v = [[UIView alloc] init];
+    v.backgroundColor = [UIColor lightGrayColor];
+    return v;
+}
+
 @end
