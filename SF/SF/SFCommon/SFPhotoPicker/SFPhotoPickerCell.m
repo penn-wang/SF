@@ -9,7 +9,6 @@
 #import "SFPhotoPickerCell.h"
 #import "SFClickImageView.h"
 
-
 static const CGFloat cellPerMargin = 10;
 const NSInteger cellImageMaxCount = 4;
 static const NSInteger cellImageTag = 100000;

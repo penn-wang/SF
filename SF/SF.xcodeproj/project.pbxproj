@@ -10,6 +10,7 @@
 		0F2985CA1B9D860000D13E97 /* SFDBWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2985C91B9D860000D13E97 /* SFDBWorker.m */; };
 		0F2985CC1B9D864300D13E97 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2985CB1B9D864300D13E97 /* libsqlite3.0.dylib */; };
 		0F2985D41B9D8A3300D13E97 /* SFDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2985D31B9D8A3300D13E97 /* SFDBHelper.m */; };
+		0F36C0241BD91946007A3D72 /* SFImageShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F36C0231BD91946007A3D72 /* SFImageShowViewController.m */; settings = {ASSET_TAGS = (); }; };
 		0F6162221B9BE61B00E07628 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6162211B9BE61B00E07628 /* main.m */; };
 		0F6162251B9BE61B00E07628 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6162241B9BE61B00E07628 /* AppDelegate.m */; };
 		0F61622D1B9BE61B00E07628 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F61622C1B9BE61B00E07628 /* Images.xcassets */; };
@@ -37,6 +38,8 @@
 		0F2985D21B9D8A3300D13E97 /* SFDBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFDBHelper.h; path = SFDB/SFDBHelper.h; sourceTree = "<group>"; };
 		0F2985D31B9D8A3300D13E97 /* SFDBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFDBHelper.m; path = SFDB/SFDBHelper.m; sourceTree = "<group>"; };
 		0F2985D51B9E7C7100D13E97 /* SFPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFPrefixHeader.pch; sourceTree = "<group>"; };
+		0F36C0221BD91946007A3D72 /* SFImageShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFImageShowViewController.h; path = SFCommon/SFImageShowViewController.h; sourceTree = "<group>"; };
+		0F36C0231BD91946007A3D72 /* SFImageShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFImageShowViewController.m; path = SFCommon/SFImageShowViewController.m; sourceTree = "<group>"; };
 		0F61621C1B9BE61B00E07628 /* SF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F6162201B9BE61B00E07628 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6162211B9BE61B00E07628 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 			children = (
 				0FA936AD1BD7AC320024D04D /* SFCategory */,
 				0FA936A71BD76EE60024D04D /* SFCommon */,
+				0F36C0221BD91946007A3D72 /* SFImageShowViewController.h */,
+				0F36C0231BD91946007A3D72 /* SFImageShowViewController.m */,
 				0FA936A31BD644510024D04D /* SFViews */,
 				0FA9369F1BD63F0E0024D04D /* SFHelper */,
 				0FA936951BD635C50024D04D /* SFViewController */,
@@ -291,6 +296,7 @@
 			files = (
 				0FA936981BD636740024D04D /* SFBaseViewController.m in Sources */,
 				0FA9369E1BD636C60024D04D /* SFHomeViewController.m in Sources */,
+				0F36C0241BD91946007A3D72 /* SFImageShowViewController.m in Sources */,
 				0FA936A61BD644720024D04D /* SFNavTitleView.m in Sources */,
 				0F2985CA1B9D860000D13E97 /* SFDBWorker.m in Sources */,
 				0FF841F21BD8D3D000048DC7 /* SFPhotoPickerViewController.m in Sources */,

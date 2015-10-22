@@ -38,6 +38,9 @@
 }
 
 - (void)didClickOnRigthNavItem {
+    
+    [super.navigationController setNavigationBarHidden:YES animated:TRUE];
+    
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle: nil                                                                             message: nil                                                                       preferredStyle:UIAlertControllerStyleActionSheet];
     //添加Button
     [alertController addAction: [UIAlertAction actionWithTitle: @"拍照" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
