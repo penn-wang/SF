@@ -51,10 +51,6 @@
     [self.view addSubview:self.tableView];
 }
 
--(void)didi {
-    NSLog(@"%@",self.groupArray.description);
-}
-
 #pragma -mark -
 #pragma -mark -table
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

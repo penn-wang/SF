@@ -39,7 +39,7 @@
 
 - (void)didClickOnRigthNavItem {
     
-    [super.navigationController setNavigationBarHidden:YES animated:TRUE];
+//    [super.navigationController setNavigationBarHidden:YES animated:YES];
     
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle: nil                                                                             message: nil                                                                       preferredStyle:UIAlertControllerStyleActionSheet];
     //添加Button

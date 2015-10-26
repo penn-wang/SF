@@ -10,4 +10,6 @@
 
 @interface SFImageShowViewController : SFBaseViewController
 
+@property (nonatomic, strong) NSArray *imageArray;
+
 @end

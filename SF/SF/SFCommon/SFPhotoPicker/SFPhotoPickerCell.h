@@ -12,7 +12,8 @@ extern const NSInteger cellImageMaxCount;
 
 @protocol  SFPhotoPickerCellDelegate <NSObject>
 @optional
-- (void)didClickOnCellImageWithIndex:(NSInteger)aIndex;
+- (void)didClickOnImageWithIndex:(NSInteger)aIndex;
+- (void)didPickImageWithIndex:(NSInteger)aIndex withStatus:(BOOL)status;
 @end
 
 @interface SFPhotoPickerCell : UITableViewCell

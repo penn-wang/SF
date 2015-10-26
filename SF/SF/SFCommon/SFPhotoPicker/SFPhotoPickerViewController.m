@@ -9,7 +9,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "SFPhotoPickerViewController.h"
 #import "SFPhotoPickerCell.h"
-
+#import "SFImageShowViewController.h"
 
 @interface SFPhotoPickerViewController ()<UITableViewDataSource, UITableViewDelegate,SFPhotoPickerCellDelegate>
 
@@ -22,8 +22,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self rightNavItemWithName:@"预览"];
     self.tableView = [SFUICreator SFCommonTableView:self frame:CGRectMake(0, self.navOffset, self.screenWidth, self.contentHeight)];
     [self.view addSubview:self.tableView];
+}
+
+- (void)didClickOnRigthNavItem {
+    SFImageShowViewController *imageVC = [[SFImageShowViewController alloc] init];
+    [self.navigationController pushViewController:imageVC animated:YES];
 }
 
 #pragma -mark -
@@ -60,9 +66,14 @@
 }
 #pragma -mark -
 #pragma -mark -SFPhotoPickerCellDelegate
-- (void)didClickOnCellImageWithIndex:(NSInteger)aIndex {
+- (void)didClickOnImageWithIndex:(NSInteger)aIndex {
     
 }
+
+- (void)didPickImageWithIndex:(NSInteger)aIndex withStatus:(BOOL)status {
+    //status YES:选中 NO:非选中
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
