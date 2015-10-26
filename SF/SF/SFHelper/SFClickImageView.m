@@ -40,7 +40,7 @@
     _selector=selector;
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
     if(self.image == nil) {
         return;
     }
@@ -51,5 +51,12 @@
         func(_target, _selector, self);
     }
 }
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event{
+    
+};
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
+    
+};
 
 @end

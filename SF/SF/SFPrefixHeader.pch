@@ -15,9 +15,12 @@
 #ifdef __OBJC__
     #import "SFDB/SFDBDefine.h"
 
-    #import "SFUIDefine.h"
-    #import "SFUICreator.h"
-    #import "UIView+Ext.h"
+    #import "SFHelper/SFUIDefine.h"
+    #import "SFHelper/SFUICreator.h"
+
+    #import "SFCategory/UIView+Ext.h"
+    #import "SFCategory/UIImage+Scale.h"
+
 #endif
 
 

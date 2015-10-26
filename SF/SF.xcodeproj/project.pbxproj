@@ -12,6 +12,7 @@
 		0F2985D41B9D8A3300D13E97 /* SFDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2985D31B9D8A3300D13E97 /* SFDBHelper.m */; };
 		0F36C0241BD91946007A3D72 /* SFImageShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F36C0231BD91946007A3D72 /* SFImageShowViewController.m */; };
 		0F4034BD1BDE017100986C75 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4034BC1BDE017100986C75 /* Photos.framework */; };
+		0F4034C01BDE29DA00986C75 /* UIImage+Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4034BF1BDE29DA00986C75 /* UIImage+Scale.m */; };
 		0F6162221B9BE61B00E07628 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6162211B9BE61B00E07628 /* main.m */; };
 		0F6162251B9BE61B00E07628 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6162241B9BE61B00E07628 /* AppDelegate.m */; };
 		0F61622D1B9BE61B00E07628 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F61622C1B9BE61B00E07628 /* Images.xcassets */; };
@@ -42,6 +43,8 @@
 		0F36C0221BD91946007A3D72 /* SFImageShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFImageShowViewController.h; path = SFCommon/SFImageShowViewController.h; sourceTree = "<group>"; };
 		0F36C0231BD91946007A3D72 /* SFImageShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFImageShowViewController.m; path = SFCommon/SFImageShowViewController.m; sourceTree = "<group>"; };
 		0F4034BC1BDE017100986C75 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		0F4034BE1BDE29DA00986C75 /* UIImage+Scale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Scale.h"; path = "SFCategory/UIImage+Scale.h"; sourceTree = "<group>"; };
+		0F4034BF1BDE29DA00986C75 /* UIImage+Scale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Scale.m"; path = "SFCategory/UIImage+Scale.m"; sourceTree = "<group>"; };
 		0F61621C1B9BE61B00E07628 /* SF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F6162201B9BE61B00E07628 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6162211B9BE61B00E07628 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 			children = (
 				0FA936B11BD7AD2E0024D04D /* UIView+Ext.h */,
 				0FA936B21BD7AD2E0024D04D /* UIView+Ext.m */,
+				0F4034BE1BDE29DA00986C75 /* UIImage+Scale.h */,
+				0F4034BF1BDE29DA00986C75 /* UIImage+Scale.m */,
 			);
 			name = SFCategory;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 				0FF841EA1BD8C0F200048DC7 /* SFPhotoGroupViewController.m in Sources */,
 				0FF841F91BD8EEF900048DC7 /* SFClickImageView.m in Sources */,
 				0FA936A21BD63F2E0024D04D /* SFUICreator.m in Sources */,
+				0F4034C01BDE29DA00986C75 /* UIImage+Scale.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

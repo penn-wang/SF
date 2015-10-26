@@ -36,8 +36,11 @@
     [self.view addSubview:_scrollView];
     
     for(NSInteger i=0; i<pagCount; i++) {
-        SFClickImageView *imageView = [[SFClickImageView alloc] initWithFrame:self.view.bounds];
-        imageView.image = [self.imageArray objectAtIndex:i];
+        UIImage *image = [self.imageArray objectAtIndex:i];
+        UIImage *scaleImage = [image scaleToSize:CGSizeMake(self.view.width,self.view.height)];
+        CGFloat originY = (self.view.height-scaleImage.size.height)/2;
+        SFClickImageView *imageView = [[SFClickImageView alloc] initWithFrame:CGRectMake(0, originY, scaleImage.size.width, scaleImage.size.height)];
+        imageView.image = scaleImage;
         [imageView addTarget:self selector:@selector(didClickOnImage:)];
         imageView.frame = CGRectMake(_scrollView.width*i, 0, self.view.width, self.view.height);
         [_scrollView addSubview:imageView];
@@ -68,7 +71,12 @@
 
 - (void)didClickOnImage:(id)sender {
     _isHiddenNav = !_isHiddenNav;
-    [super.navigationController setNavigationBarHidden:_isHiddenNav animated:YES];
+    [super.navigationController setNavigationBarHidden:_isHiddenNav animated:NO];
+    if(_isHiddenNav) {
+        self.view.backgroundColor = [UIColor blackColor];
+    } else {
+        self.view.backgroundColor = [UIColor whiteColor];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
