@@ -23,6 +23,7 @@
     self.screenHeight = [UIScreen mainScreen].bounds.size.height;
     self.contentHeight = self.screenHeight-64.0f;
     self.navOffset = 64.0f;
+    self.statusBarOffset = 20.0f;
 }
 
 #pragma -mark -

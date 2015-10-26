@@ -26,9 +26,15 @@ extern const NSInteger cellImageMaxCount;
 - (void)didClickOnPicker:(NSInteger)aTag status:(BOOL)status;
 @end
 
+@interface SFPhotoCellImageData : NSObject
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, assign) BOOL isPicked;
+- (id)initWithImage:(UIImage *)image status:(BOOL)isPicked;
+@end
+
 @interface PPCellImage : UIView
 
-@property (nonatomic, strong) SFClickImageView *imageView;
+@property (nonatomic, strong) UIButton *imageBtn;
 @property (nonatomic, strong) SFClickImageView *pickerImageView;
 @property (nonatomic, assign) bool status;
 
@@ -36,7 +42,7 @@ extern const NSInteger cellImageMaxCount;
 
 - (void)layOutViews:(CGRect)frame;
 
-- (void)showImage:(UIImage *)image;
+- (void)showImage:(SFPhotoCellImageData *)image;
 - (void)clear;
 
 @end

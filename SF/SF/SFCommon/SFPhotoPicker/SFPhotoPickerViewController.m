@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 
+@property (nonatomic, strong) NSMutableArray *pickedPhotos;
+
 @end
 
 @implementation SFPhotoPickerViewController
@@ -25,6 +27,7 @@
     [self rightNavItemWithName:@"预览"];
     self.tableView = [SFUICreator SFCommonTableView:self frame:CGRectMake(0, self.navOffset, self.screenWidth, self.contentHeight)];
     [self.view addSubview:self.tableView];
+    self.pickedPhotos = [[NSMutableArray alloc] init];
 }
 
 - (void)didClickOnRigthNavItem {
@@ -50,28 +53,59 @@
         cell = [[SFPhotoPickerCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseStr];
         cell.delegate = self;
     }
-    NSMutableArray *photoArray = [[NSMutableArray alloc] init];
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
     NSMutableArray *indexArray = [[NSMutableArray alloc] init];
     for (int i=0; i<cellImageMaxCount; i++) {
-        NSInteger index = indexPath.row*4+i;
+        NSInteger index = indexPath.row*cellImageMaxCount+i;
         if(index < self.photoArray.count) {
             ALAsset *asset = [self.photoArray objectAtIndex:index];
-            [photoArray addObject:[UIImage imageWithCGImage:[asset thumbnail]]];
+            
+            BOOL isPicked = false;
+            for (int j=0; j<self.pickedPhotos.count; j++) {
+                ALAsset *pickedAsset = (ALAsset *)[self.pickedPhotos objectAtIndex:j];
+                if(pickedAsset == asset) {
+                    isPicked = true;
+                    break;
+                }
+            }
+            UIImage *image = [UIImage imageWithCGImage:[asset thumbnail]];
+            SFPhotoCellImageData *data = [[SFPhotoCellImageData alloc] initWithImage:image status:isPicked];
+            [dataArray addObject:data];
 //            [photoArray addObject:[UIImage imageWithCGImage:[[asset defaultRepresentation] fullResolutionImage]]];
             [indexArray addObject:[NSNumber numberWithInteger:index]];
         }
     }
-    [cell cellContent:photoArray indexs:indexArray];
+    [cell cellContent:dataArray indexs:indexArray];
     return cell;
 }
 #pragma -mark -
 #pragma -mark -SFPhotoPickerCellDelegate
-- (void)didClickOnImageWithIndex:(NSInteger)aIndex {
-    
+//status YES:选中 NO:非选中
+- (void)didClickOnImageWithIndex:(NSInteger)aIndex withStatus:(BOOL)status {
+    if(status) {
+        NSMutableArray *showPhotos = [[NSMutableArray alloc] init];
+        for (NSInteger i=0; i<self.pickedPhotos.count; i++) {
+            ALAsset *asset = [self.pickedPhotos objectAtIndex:i];
+            [showPhotos addObject:[UIImage imageWithCGImage:[[asset defaultRepresentation] fullScreenImage]]];
+        }
+        SFImageShowViewController *showVC = [[SFImageShowViewController alloc] init];
+        showVC.imageArray = showPhotos;
+        [self.navigationController pushViewController:showVC animated:YES];
+    } else {
+        ALAsset *asset = [self.photoArray objectAtIndex:aIndex];
+        SFImageShowViewController *showVC = [[SFImageShowViewController alloc] init];
+        showVC.imageArray = @[[UIImage imageWithCGImage:[[asset defaultRepresentation] fullScreenImage]]];
+        [self.navigationController pushViewController:showVC animated:YES];
+    }
 }
 
 - (void)didPickImageWithIndex:(NSInteger)aIndex withStatus:(BOOL)status {
-    //status YES:选中 NO:非选中
+    ALAsset *asset = [self.photoArray objectAtIndex:aIndex];
+    if(status) {
+        [self.pickedPhotos addObject:asset];
+    } else {
+        [self.pickedPhotos removeObject:asset];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

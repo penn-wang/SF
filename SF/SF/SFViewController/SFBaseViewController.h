@@ -14,6 +14,8 @@
 @property (nonatomic, assign) CGFloat screenHeight;
 @property (nonatomic, assign) CGFloat contentHeight;
 @property (nonatomic, assign) CGFloat navOffset;
+@property (nonatomic, assign) CGFloat statusBarOffset;
+
 
 - (void)rightNavItemWithName:(NSString *)name;
 

@@ -23,6 +23,18 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
 #pragma -mark -
 #pragma -mark - PPCellImage
 
+@implementation SFPhotoCellImageData
+
+- (id)initWithImage:(UIImage *)image status:(BOOL)isPicked {
+    if(self = [super init]) {
+        self.image = image;
+        self.isPicked = isPicked;
+    }
+    return self;
+}
+
+@end
+
 @interface PPCellImage ()
 
 @end
@@ -47,18 +59,18 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
     return self;
 }
 
-
 - (void)layOutViews:(CGRect)frame{
     self.frame = frame;
-    self.imageView.frame = self.bounds;
+    self.imageBtn.frame = self.bounds;
     CGFloat margin = 5;
     CGFloat width = self.width/4;
     CGFloat height = self.height/4;
     self.pickerImageView.frame = CGRectMake(self.width-width-margin, self.height-height-margin, width, height);
 }
 
-- (void)showImage:(UIImage *)image {
-    self.imageView.image = image;
+- (void)showImage:(SFPhotoCellImageData *)data {
+    [self.imageBtn setBackgroundImage:data.image forState:UIControlStateNormal];
+    self.status = data.isPicked;
     if(self.status) {
         self.pickerImageView.image = [UIImage imageNamed:@"photo_picker_yes"];
     } else {
@@ -67,15 +79,15 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
 }
 
 - (void)clear {
-    self.imageView.image = nil;
+    [self.imageBtn setBackgroundImage:nil forState:UIControlStateNormal];
     self.pickerImageView.image = nil;
 }
 
 - (void)initContentViews:(UIImage *)image {
-    self.imageView = [[SFClickImageView alloc] init];
-    self.imageView.image = image;
-    [self.imageView addTarget:self selector:@selector(didClickOnImage:)];
-    [self addSubview:self.imageView];
+    self.imageBtn = [[UIButton alloc] init];
+    [self.imageBtn setBackgroundImage:image forState:UIControlStateNormal];
+    [self.imageBtn addTarget:self action:@selector(didClickOnImage:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:self.imageBtn];
     
     self.pickerImageView = [[SFClickImageView alloc] init];
     self.pickerImageView.image = [UIImage imageNamed:@"photo_picker_no"];
@@ -84,7 +96,7 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
 }
 
 - (void)didClickOnImage:(id)sender {
-    if(self.delegate && [self.delegate respondsToSelector:@selector(didClickOnImage:)]) {
+    if(self.delegate && [self.delegate respondsToSelector:@selector(didClickOnImage:status:)]) {
         [self.delegate didClickOnImage:self.tag status:self.status];
     }
 }
@@ -96,7 +108,7 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
     } else {
         self.pickerImageView.image = [UIImage imageNamed:@"photo_picker_no"];
     }
-    if(self.delegate && [self.delegate respondsToSelector:@selector(didClickOnPicker:)]) {
+    if(self.delegate && [self.delegate respondsToSelector:@selector(didClickOnPicker:status:)]) {
         [self.delegate didClickOnPicker:self.tag status:self.status];
     }
 }
@@ -149,50 +161,50 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
     return ([UIScreen mainScreen].bounds.size.width-cellPerMargin*(cellImageMaxCount+1))/cellImageMaxCount + cellPerMargin;
 }
 
--(void)cellContent:(NSArray *)imageArray indexs:(NSArray *)indexArray {
-    if(imageArray==nil || imageArray.count<=0 || imageArray.count>cellImageMaxCount) {
+-(void)cellContent:(NSArray *)dataArray indexs:(NSArray *)indexArray {
+    if(dataArray==nil || dataArray.count<=0 || dataArray.count>cellImageMaxCount) {
         return;
     }
     if(indexArray==nil || indexArray.count<=0 || indexArray.count>cellImageMaxCount) {
         return;
     }
-    [self resetImages:imageArray indexs:indexArray];
+    [self resetImages:dataArray indexs:indexArray];
 }
 
-- (void)resetImages:(NSArray *)imageArray indexs:(NSArray *)indexArray {
-    switch (imageArray.count) {
+- (void)resetImages:(NSArray *)dataArray indexs:(NSArray *)indexArray {
+    switch (dataArray.count) {
         case 1:
-            [_firstImage showImage:[imageArray objectAtIndex:0]];
+            [_firstImage showImage:(SFPhotoCellImageData *)[dataArray objectAtIndex:0]];
             [_secondImage clear];
             [_thirdImage clear];
             [_fourImage clear];
             _firstImage.tag = [[indexArray objectAtIndex:0] integerValue] + cellImageTag;
             break;
         case 2:
-            [_firstImage showImage:[imageArray objectAtIndex:0]];
+            [_firstImage showImage:(SFPhotoCellImageData *)[dataArray objectAtIndex:0]];
             _firstImage.tag = [[indexArray objectAtIndex:0] integerValue] + cellImageTag;
-            [_secondImage showImage:[imageArray objectAtIndex:1]];
+            [_secondImage showImage:(SFPhotoCellImageData *)[dataArray objectAtIndex:1]];
             _secondImage.tag = [[indexArray objectAtIndex:1] integerValue] + cellImageTag;
             [_thirdImage clear];
             [_fourImage clear];
             break;
         case 3:
-            [_firstImage showImage:[imageArray objectAtIndex:0]];
+            [_firstImage showImage:(SFPhotoCellImageData *)[dataArray objectAtIndex:0]];
             _firstImage.tag = [[indexArray objectAtIndex:0] integerValue] + cellImageTag;
-            [_secondImage showImage:[imageArray objectAtIndex:1]];
+            [_secondImage showImage:(SFPhotoCellImageData *)[dataArray objectAtIndex:1]];
             _secondImage.tag = [[indexArray objectAtIndex:1] integerValue] + cellImageTag;
-            [_thirdImage showImage:[imageArray objectAtIndex:2]];
+            [_thirdImage showImage:(SFPhotoCellImageData *)[dataArray objectAtIndex:2]];
             _thirdImage.tag = [[indexArray objectAtIndex:2] integerValue] + cellImageTag;
             [_fourImage clear];
             break;
         case 4:
-            [_firstImage showImage:[imageArray objectAtIndex:0]];
+            [_firstImage showImage:(SFPhotoCellImageData *)[dataArray objectAtIndex:0]];
             _firstImage.tag = [[indexArray objectAtIndex:0] integerValue] + cellImageTag;
-            [_secondImage showImage:[imageArray objectAtIndex:1]];
+            [_secondImage showImage:(SFPhotoCellImageData *)[dataArray objectAtIndex:1]];
             _secondImage.tag = [[indexArray objectAtIndex:1] integerValue] + cellImageTag;
-            [_thirdImage showImage:[imageArray objectAtIndex:2]];
+            [_thirdImage showImage:(SFPhotoCellImageData *)[dataArray objectAtIndex:2]];
             _thirdImage.tag = [[indexArray objectAtIndex:2] integerValue] + cellImageTag;
-            [_fourImage showImage:[imageArray objectAtIndex:3]];
+            [_fourImage showImage:(SFPhotoCellImageData *)[dataArray objectAtIndex:3]];
             _fourImage.tag = [[indexArray objectAtIndex:3] integerValue] + cellImageTag;
             break;
         default:
@@ -217,7 +229,7 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
     }
 }
 
-- (void)clickOnImage:(NSInteger)aTag status:(BOOL)status{
+- (void)didClickOnImage:(NSInteger)aTag status:(BOOL)status{
     if(self.delegate && [self.delegate respondsToSelector:@selector(didClickOnImageWithIndex:withStatus:)]) {
         [self.delegate didClickOnImageWithIndex:(aTag-cellImageTag) withStatus:status];
     }
