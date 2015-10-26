@@ -10,24 +10,25 @@
 		0F2985CA1B9D860000D13E97 /* SFDBWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2985C91B9D860000D13E97 /* SFDBWorker.m */; };
 		0F2985CC1B9D864300D13E97 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2985CB1B9D864300D13E97 /* libsqlite3.0.dylib */; };
 		0F2985D41B9D8A3300D13E97 /* SFDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2985D31B9D8A3300D13E97 /* SFDBHelper.m */; };
-		0F36C0241BD91946007A3D72 /* SFImageShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F36C0231BD91946007A3D72 /* SFImageShowViewController.m */; settings = {ASSET_TAGS = (); }; };
+		0F36C0241BD91946007A3D72 /* SFImageShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F36C0231BD91946007A3D72 /* SFImageShowViewController.m */; };
+		0F4034BD1BDE017100986C75 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4034BC1BDE017100986C75 /* Photos.framework */; };
 		0F6162221B9BE61B00E07628 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6162211B9BE61B00E07628 /* main.m */; };
 		0F6162251B9BE61B00E07628 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6162241B9BE61B00E07628 /* AppDelegate.m */; };
 		0F61622D1B9BE61B00E07628 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F61622C1B9BE61B00E07628 /* Images.xcassets */; };
 		0F6162301B9BE61B00E07628 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F61622E1B9BE61B00E07628 /* LaunchScreen.xib */; };
-		0FA936941BD630CC0024D04D /* RD in Resources */ = {isa = PBXBuildFile; fileRef = 0FA936931BD630CC0024D04D /* RD */; settings = {ASSET_TAGS = (); }; };
-		0FA936981BD636740024D04D /* SFBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936971BD636740024D04D /* SFBaseViewController.m */; settings = {ASSET_TAGS = (); }; };
-		0FA9369E1BD636C60024D04D /* SFHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA9369D1BD636C60024D04D /* SFHomeViewController.m */; settings = {ASSET_TAGS = (); }; };
-		0FA936A21BD63F2E0024D04D /* SFUICreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936A11BD63F2E0024D04D /* SFUICreator.m */; settings = {ASSET_TAGS = (); }; };
-		0FA936A61BD644720024D04D /* SFNavTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936A51BD644720024D04D /* SFNavTitleView.m */; settings = {ASSET_TAGS = (); }; };
-		0FA936AC1BD792430024D04D /* SFNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936AB1BD792430024D04D /* SFNewViewController.m */; settings = {ASSET_TAGS = (); }; };
-		0FA936B31BD7AD2E0024D04D /* UIView+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936B21BD7AD2E0024D04D /* UIView+Ext.m */; settings = {ASSET_TAGS = (); }; };
-		0FF841EA1BD8C0F200048DC7 /* SFPhotoGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841E91BD8C0F200048DC7 /* SFPhotoGroupViewController.m */; settings = {ASSET_TAGS = (); }; };
+		0FA936941BD630CC0024D04D /* RD in Resources */ = {isa = PBXBuildFile; fileRef = 0FA936931BD630CC0024D04D /* RD */; };
+		0FA936981BD636740024D04D /* SFBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936971BD636740024D04D /* SFBaseViewController.m */; };
+		0FA9369E1BD636C60024D04D /* SFHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA9369D1BD636C60024D04D /* SFHomeViewController.m */; };
+		0FA936A21BD63F2E0024D04D /* SFUICreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936A11BD63F2E0024D04D /* SFUICreator.m */; };
+		0FA936A61BD644720024D04D /* SFNavTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936A51BD644720024D04D /* SFNavTitleView.m */; };
+		0FA936AC1BD792430024D04D /* SFNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936AB1BD792430024D04D /* SFNewViewController.m */; };
+		0FA936B31BD7AD2E0024D04D /* UIView+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936B21BD7AD2E0024D04D /* UIView+Ext.m */; };
+		0FF841EA1BD8C0F200048DC7 /* SFPhotoGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841E91BD8C0F200048DC7 /* SFPhotoGroupViewController.m */; };
 		0FF841EC1BD8C15800048DC7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF841EB1BD8C15800048DC7 /* AssetsLibrary.framework */; };
-		0FF841EF1BD8C80F00048DC7 /* SFPhotoGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841EE1BD8C80F00048DC7 /* SFPhotoGroupCell.m */; settings = {ASSET_TAGS = (); }; };
-		0FF841F21BD8D3D000048DC7 /* SFPhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841F11BD8D3D000048DC7 /* SFPhotoPickerViewController.m */; settings = {ASSET_TAGS = (); }; };
-		0FF841F61BD8DF5500048DC7 /* SFPhotoPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841F51BD8DF5500048DC7 /* SFPhotoPickerCell.m */; settings = {ASSET_TAGS = (); }; };
-		0FF841F91BD8EEF900048DC7 /* SFClickImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841F81BD8EEF900048DC7 /* SFClickImageView.m */; settings = {ASSET_TAGS = (); }; };
+		0FF841EF1BD8C80F00048DC7 /* SFPhotoGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841EE1BD8C80F00048DC7 /* SFPhotoGroupCell.m */; };
+		0FF841F21BD8D3D000048DC7 /* SFPhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841F11BD8D3D000048DC7 /* SFPhotoPickerViewController.m */; };
+		0FF841F61BD8DF5500048DC7 /* SFPhotoPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841F51BD8DF5500048DC7 /* SFPhotoPickerCell.m */; };
+		0FF841F91BD8EEF900048DC7 /* SFClickImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841F81BD8EEF900048DC7 /* SFClickImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		0F2985D51B9E7C7100D13E97 /* SFPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SFPrefixHeader.pch; sourceTree = "<group>"; };
 		0F36C0221BD91946007A3D72 /* SFImageShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFImageShowViewController.h; path = SFCommon/SFImageShowViewController.h; sourceTree = "<group>"; };
 		0F36C0231BD91946007A3D72 /* SFImageShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFImageShowViewController.m; path = SFCommon/SFImageShowViewController.m; sourceTree = "<group>"; };
+		0F4034BC1BDE017100986C75 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		0F61621C1B9BE61B00E07628 /* SF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F6162201B9BE61B00E07628 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6162211B9BE61B00E07628 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F4034BD1BDE017100986C75 /* Photos.framework in Frameworks */,
 				0FF841EC1BD8C15800048DC7 /* AssetsLibrary.framework in Frameworks */,
 				0F2985CC1B9D864300D13E97 /* libsqlite3.0.dylib in Frameworks */,
 			);
@@ -91,6 +94,7 @@
 		0F2985CD1B9D865C00D13E97 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				0F4034BC1BDE017100986C75 /* Photos.framework */,
 				0FF841EB1BD8C15800048DC7 /* AssetsLibrary.framework */,
 				0F2985CB1B9D864300D13E97 /* libsqlite3.0.dylib */,
 			);

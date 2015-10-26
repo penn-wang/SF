@@ -22,7 +22,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.userInteractionEnabled=YES;
-        self.status = false;
     }
     return self;
 }

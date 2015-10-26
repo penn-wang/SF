@@ -10,7 +10,6 @@
 
 @interface SFClickImageView : UIImageView 
 
-@property (nonatomic, assign) BOOL status;
 
 -(void)addTarget:(id)target selector:(SEL)selector;
 

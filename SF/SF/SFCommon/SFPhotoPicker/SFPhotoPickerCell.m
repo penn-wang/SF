@@ -20,18 +20,99 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
     E_Cell_Type_FourImg
 };
 
-@interface SFPhotoPickerCell () {
+#pragma -mark -
+#pragma -mark - PPCellImage
+
+@interface PPCellImage ()
+
+@end
+
+@implementation PPCellImage
+
+- (id)init {
+    if(self = [super init]) {
+        self.backgroundColor = [UIColor clearColor];
+        self.status = false;
+        [self initContentViews:nil];
+    }
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame {
+    if(self = [super initWithFrame:frame]) {
+        self.backgroundColor = [UIColor clearColor];
+        self.status = false;
+        [self initContentViews:nil];
+    }
+    return self;
+}
+
+
+- (void)layOutViews:(CGRect)frame{
+    self.frame = frame;
+    self.imageView.frame = self.bounds;
+    CGFloat margin = 5;
+    CGFloat width = self.width/4;
+    CGFloat height = self.height/4;
+    self.pickerImageView.frame = CGRectMake(self.width-width-margin, self.height-height-margin, width, height);
+}
+
+- (void)showImage:(UIImage *)image {
+    self.imageView.image = image;
+    if(self.status) {
+        self.pickerImageView.image = [UIImage imageNamed:@"photo_picker_yes"];
+    } else {
+        self.pickerImageView.image = [UIImage imageNamed:@"photo_picker_no"];
+    }
+}
+
+- (void)clear {
+    self.imageView.image = nil;
+    self.pickerImageView.image = nil;
+}
+
+- (void)initContentViews:(UIImage *)image {
+    self.imageView = [[SFClickImageView alloc] init];
+    self.imageView.image = image;
+    [self.imageView addTarget:self selector:@selector(didClickOnImage:)];
+    [self addSubview:self.imageView];
+    
+    self.pickerImageView = [[SFClickImageView alloc] init];
+    self.pickerImageView.image = [UIImage imageNamed:@"photo_picker_no"];
+    [self.pickerImageView addTarget:self selector:@selector(didClickOnPicker:)];
+    [self addSubview:self.pickerImageView];
+}
+
+- (void)didClickOnImage:(id)sender {
+    if(self.delegate && [self.delegate respondsToSelector:@selector(didClickOnImage:)]) {
+        [self.delegate didClickOnImage:self.tag status:self.status];
+    }
+}
+
+- (void)didClickOnPicker:(id)sender {
+    self.status = !self.status;
+    if(self.status) {
+        self.pickerImageView.image = [UIImage imageNamed:@"photo_picker_yes"];
+    } else {
+        self.pickerImageView.image = [UIImage imageNamed:@"photo_picker_no"];
+    }
+    if(self.delegate && [self.delegate respondsToSelector:@selector(didClickOnPicker:)]) {
+        [self.delegate didClickOnPicker:self.tag status:self.status];
+    }
+}
+
+@end
+
+#pragma -mark -
+#pragma -mark -SFPhotoPickerCell
+
+@interface SFPhotoPickerCell () <PPCellImageDelegate>{
     CGFloat _perLength;
     
-    SFClickImageView *_firstImage;
-    SFClickImageView *_secondImage;
-    SFClickImageView *_thirdImage;
-    SFClickImageView *_fourImage;
-    
-    SFClickImageView *_firstPickerImage;
-    SFClickImageView *_secondPickerImage;
-    SFClickImageView *_thirdPickerImage;
-    SFClickImageView *_fourPickerImage;
+    PPCellImage *_firstImage;
+    PPCellImage *_secondImage;
+    PPCellImage *_thirdImage;
+    PPCellImage *_fourImage;
     
     SFPhotoPickerCellType _type;
 }
@@ -48,38 +129,18 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
 }
 
 - (void)initContentViews {
-    _firstImage = [[SFClickImageView alloc] init];
-    [_firstImage addTarget:self selector:@selector(clickOnImage:)];
+    _firstImage = [[PPCellImage alloc] init];
+    _firstImage.delegate = self;
     [self.contentView addSubview:_firstImage];
-    _secondImage = [[SFClickImageView alloc] init];
-    [_secondImage addTarget:self selector:@selector(clickOnImage:)];
+    _secondImage = [[PPCellImage alloc] init];
+    _secondImage.delegate = self;
     [self.contentView addSubview:_secondImage];
-    _thirdImage = [[SFClickImageView alloc] init];
-    [_thirdImage addTarget:self selector:@selector(clickOnImage:)];
+    _thirdImage = [[PPCellImage alloc] init];
+    _thirdImage.delegate = self;
     [self.contentView addSubview:_thirdImage];
-    _fourImage = [[SFClickImageView alloc] init];
-    [_fourImage addTarget:self selector:@selector(clickOnImage:)];
+    _fourImage = [[PPCellImage alloc] init];
+    _fourImage.delegate = self;
     [self.contentView addSubview:_fourImage];
-    
-    _firstPickerImage = [[SFClickImageView alloc] init];
-    _firstPickerImage.image = [UIImage imageNamed:@"photo_picker_no"];
-    [_firstPickerImage addTarget:self selector:@selector(didClickOnPicker:)];
-    [_firstImage addSubview:_firstPickerImage];
-    
-    _secondPickerImage = [[SFClickImageView alloc] init];
-    _secondPickerImage.image = [UIImage imageNamed:@"photo_picker_no"];
-    [_secondPickerImage addTarget:self selector:@selector(didClickOnPicker:)];
-    [_secondImage addSubview:_secondPickerImage];
-    
-    _thirdPickerImage = [[SFClickImageView alloc] init];
-    _thirdPickerImage.image = [UIImage imageNamed:@"photo_picker_no"];
-    [_thirdPickerImage addTarget:self selector:@selector(didClickOnPicker:)];
-    [_thirdImage addSubview:_thirdPickerImage];
-    
-    _fourPickerImage = [[SFClickImageView alloc] init];
-    _fourPickerImage.image = [UIImage imageNamed:@"photo_picker_no"];
-    [_fourPickerImage addTarget:self selector:@selector(didClickOnPicker:)];
-    [_fourImage addSubview:_fourPickerImage];
     
     _perLength = ([UIScreen mainScreen].bounds.size.width-cellPerMargin*(cellImageMaxCount+1))/cellImageMaxCount;
 }
@@ -101,47 +162,37 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
 - (void)resetImages:(NSArray *)imageArray indexs:(NSArray *)indexArray {
     switch (imageArray.count) {
         case 1:
-            _firstImage.image = [imageArray objectAtIndex:0];
-            _secondImage.image = nil;
-            _thirdImage.image = nil;
-            _fourImage.image = nil;
-            _firstPickerImage.tag = [[indexArray objectAtIndex:0] integerValue] + cellImageTag;
+            [_firstImage showImage:[imageArray objectAtIndex:0]];
+            [_secondImage clear];
+            [_thirdImage clear];
+            [_fourImage clear];
             _firstImage.tag = [[indexArray objectAtIndex:0] integerValue] + cellImageTag;
             break;
         case 2:
-            _firstImage.image = [imageArray objectAtIndex:0];
-            _firstPickerImage.tag = [[indexArray objectAtIndex:0] integerValue] + cellImageTag;
+            [_firstImage showImage:[imageArray objectAtIndex:0]];
             _firstImage.tag = [[indexArray objectAtIndex:0] integerValue] + cellImageTag;
-            _secondImage.image = [imageArray objectAtIndex:1];
-            _secondPickerImage.tag = [[indexArray objectAtIndex:1] integerValue] + cellImageTag;
+            [_secondImage showImage:[imageArray objectAtIndex:1]];
             _secondImage.tag = [[indexArray objectAtIndex:1] integerValue] + cellImageTag;
-            _thirdImage.image = nil;
-            _fourImage.image = nil;
+            [_thirdImage clear];
+            [_fourImage clear];
             break;
         case 3:
-            _firstImage.image = [imageArray objectAtIndex:0];
-            _firstPickerImage.tag = [[indexArray objectAtIndex:0] integerValue] + cellImageTag;
+            [_firstImage showImage:[imageArray objectAtIndex:0]];
             _firstImage.tag = [[indexArray objectAtIndex:0] integerValue] + cellImageTag;
-            _secondImage.image = [imageArray objectAtIndex:1];
-            _secondPickerImage.tag = [[indexArray objectAtIndex:1] integerValue] + cellImageTag;
+            [_secondImage showImage:[imageArray objectAtIndex:1]];
             _secondImage.tag = [[indexArray objectAtIndex:1] integerValue] + cellImageTag;
-            _thirdImage.image = [imageArray objectAtIndex:2];
-            _thirdPickerImage.tag = [[indexArray objectAtIndex:2] integerValue] + cellImageTag;
+            [_thirdImage showImage:[imageArray objectAtIndex:2]];
             _thirdImage.tag = [[indexArray objectAtIndex:2] integerValue] + cellImageTag;
-            _fourImage.image = nil;
+            [_fourImage clear];
             break;
         case 4:
-            _firstImage.image = [imageArray objectAtIndex:0];
-            _firstPickerImage.tag = [[indexArray objectAtIndex:0] integerValue] + cellImageTag;
+            [_firstImage showImage:[imageArray objectAtIndex:0]];
             _firstImage.tag = [[indexArray objectAtIndex:0] integerValue] + cellImageTag;
-            _secondImage.image = [imageArray objectAtIndex:1];
-            _secondPickerImage.tag = [[indexArray objectAtIndex:1] integerValue] + cellImageTag;
+            [_secondImage showImage:[imageArray objectAtIndex:1]];
             _secondImage.tag = [[indexArray objectAtIndex:1] integerValue] + cellImageTag;
-            _thirdImage.image = [imageArray objectAtIndex:2];
-            _thirdPickerImage.tag = [[indexArray objectAtIndex:2] integerValue] + cellImageTag;
+            [_thirdImage showImage:[imageArray objectAtIndex:2]];
             _thirdImage.tag = [[indexArray objectAtIndex:2] integerValue] + cellImageTag;
-            _fourImage.image = [imageArray objectAtIndex:3];
-            _fourPickerImage.tag = [[indexArray objectAtIndex:3] integerValue] + cellImageTag;
+            [_fourImage showImage:[imageArray objectAtIndex:3]];
             _fourImage.tag = [[indexArray objectAtIndex:3] integerValue] + cellImageTag;
             break;
         default:
@@ -150,33 +201,25 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
 }
 
 - (void)layoutSubviews {
-    _firstImage.frame = CGRectMake(cellPerMargin, cellPerMargin/2, _perLength, _perLength);
-    _secondImage.frame = CGRectMake(cellPerMargin*2+_perLength, cellPerMargin/2, _perLength, _perLength);
-    _thirdImage.frame = CGRectMake(cellPerMargin*3+_perLength*2, cellPerMargin/2, _perLength, _perLength);
-    _fourImage.frame = CGRectMake(cellPerMargin*4+_perLength*3, cellPerMargin/2, _perLength, _perLength);
-    _firstPickerImage.frame = CGRectMake(_perLength*4/5, _perLength*4/5, _perLength/5, _perLength/5);
-    _secondPickerImage.frame = CGRectMake(_perLength*4/5, _perLength*4/5, _perLength/5, _perLength/5);
-    _thirdPickerImage.frame = CGRectMake(_perLength*4/5, _perLength*4/5, _perLength/5, _perLength/5);
-    _fourPickerImage.frame = CGRectMake(_perLength*4/5, _perLength*4/5, _perLength/5, _perLength/5);
+    [_firstImage layOutViews:CGRectMake(cellPerMargin, cellPerMargin/2, _perLength, _perLength)];
+    [_secondImage layOutViews:CGRectMake(cellPerMargin*2+_perLength, cellPerMargin/2, _perLength, _perLength)];
+    [_thirdImage layOutViews:CGRectMake(cellPerMargin*3+_perLength*2, cellPerMargin/2, _perLength, _perLength)];
+    [_fourImage layOutViews:CGRectMake(cellPerMargin*4+_perLength*3, cellPerMargin/2, _perLength, _perLength)];
 }
 
-- (void)didClickOnPicker:(id)sender {
-    SFClickImageView *imageView = (SFClickImageView *)sender;
-    imageView.status = !imageView.status;
-    if(imageView.status) {
-        imageView.image = [UIImage imageNamed:@"photo_picker_yes"];
-    } else {
-        imageView.image = [UIImage imageNamed:@"photo_picker_no"];
-    }
+#pragma -mark -
+#pragma -mark -PPCellImageDelegate
+
+- (void)didClickOnPicker:(NSInteger)aTag status:(BOOL)status{
+
     if(self.delegate && [self.delegate respondsToSelector:@selector(didPickImageWithIndex: withStatus:)]) {
-        [self.delegate didPickImageWithIndex:(imageView.tag-cellImageTag) withStatus:imageView.status];
+        [self.delegate didPickImageWithIndex:(aTag-cellImageTag) withStatus:status];
     }
 }
 
-- (void)clickOnImage:(id)sender {
-    if(self.delegate && [self.delegate respondsToSelector:@selector(didClickOnImageWithIndex:)]) {
-        SFClickImageView *image = (SFClickImageView *)sender;
-        [self.delegate didClickOnImageWithIndex:(image.tag-cellImageTag)];
+- (void)clickOnImage:(NSInteger)aTag status:(BOOL)status{
+    if(self.delegate && [self.delegate respondsToSelector:@selector(didClickOnImageWithIndex:withStatus:)]) {
+        [self.delegate didClickOnImageWithIndex:(aTag-cellImageTag) withStatus:status];
     }
 }
 
