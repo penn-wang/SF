@@ -24,15 +24,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self rightNavItemWithName:@"预览"];
+    [self rightNavItemWithName:@"保存"];
     self.tableView = [SFUICreator SFCommonTableView:self frame:CGRectMake(0, self.navOffset, self.screenWidth, self.contentHeight)];
     [self.view addSubview:self.tableView];
     self.pickedPhotos = [[NSMutableArray alloc] init];
 }
 
 - (void)didClickOnRigthNavItem {
-    SFImageShowViewController *imageVC = [[SFImageShowViewController alloc] init];
-    [self.navigationController pushViewController:imageVC animated:YES];
+    [self popToViewControllerWithName:@"SFNewViewController"];
 }
 
 #pragma -mark -

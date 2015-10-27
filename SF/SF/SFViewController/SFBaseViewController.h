@@ -16,6 +16,7 @@
 @property (nonatomic, assign) CGFloat navOffset;
 @property (nonatomic, assign) CGFloat statusBarOffset;
 
+- (void)popToViewControllerWithName:(NSString *)vcName;
 
 - (void)rightNavItemWithName:(NSString *)name;
 

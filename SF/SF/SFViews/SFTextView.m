@@ -66,6 +66,13 @@
     }
 }
 
+- (BOOL)isFirstResponder {
+    return [self.input isFirstResponder];
+}
+
+- (BOOL)resignFirstResponder {
+    return [self.input resignFirstResponder];
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -16,4 +16,8 @@
 
 - (id)initWithFrame:(CGRect)frame  placeHolder:(NSString *)placeHolder;
 
+- (BOOL)isFirstResponder;
+
+- (BOOL)resignFirstResponder;
+
 @end

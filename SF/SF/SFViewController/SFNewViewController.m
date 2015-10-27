@@ -9,6 +9,7 @@
 #import "SFNewViewController.h"
 #import "SFPhotoGroupViewController.h"
 #import "SFTextView.h"
+#import "SFPhotoPickedView.h"
 
 @interface SFNewViewController ()<UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -25,17 +26,26 @@
     [self leftNavItemCancel];
     [self rightNavItemWithName:@"保存"];
     self.textView = [[SFTextView alloc] initWithFrame:CGRectMake(10, self.navOffset+10, self.screenWidth-20, 100) placeHolder:@"请输入内容"];
-//    self.textView = [SFUICreator SFCommonTextView:self frame:CGRectMake(10, self.navOffset+10, self.screenWidth-20, 100)];
     self.textView.backgroundColor = [UIColor greenColor];
-//    self.textView.text = @"保存";
     [self.view addSubview:self.textView];
+    
+    SFPhotoPickedView *v = [[SFPhotoPickedView alloc] initWithOriginY:self.textView.bottom+20];
+    v.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:v];
+    NSMutableArray *testArray = [[NSMutableArray alloc] init];
+    for (NSInteger i=0; i<5; i++) {
+        UIImage *image = [UIImage imageNamed:@"photo_picker_no"];
+        SFPhotoPickedViewData *data = [[SFPhotoPickedViewData alloc] initWithBigImage:image smallImage:image];
+        [testArray addObject:data];
+    }
+    [v addViews:testArray];
 }
 
 - (void)didClickOnLeftNavItem {
     if([self.textView isFirstResponder]) {
         [self.textView resignFirstResponder];
     }
-    [self dismissViewControllerAnimated:YES completion:^{
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
     }];
 }
 

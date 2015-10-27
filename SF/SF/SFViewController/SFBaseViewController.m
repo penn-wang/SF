@@ -26,6 +26,26 @@
     self.statusBarOffset = 20.0f;
 }
 
+- (void)popToViewControllerWithName:(NSString *)vcName {
+    if (vcName==nil || vcName.length<=0) {
+        return;
+    }
+    if(!self.navigationController) {
+        return;
+    }
+    UIViewController *targetVC;
+    for (NSInteger i=0; i<self.navigationController.viewControllers.count; i++) {
+        UIViewController *vc = (UIViewController *)[self.navigationController.viewControllers objectAtIndex:i];
+        if ([vc isKindOfClass:NSClassFromString(vcName)]) {
+            targetVC = vc;
+            break;
+        }
+    }
+    if(targetVC) {
+        [self.navigationController popToViewController:targetVC animated:YES];
+    }
+}
+
 #pragma -mark -
 #pragma -mark -conmon Nav
 

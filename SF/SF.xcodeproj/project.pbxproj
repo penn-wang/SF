@@ -26,6 +26,7 @@
 		0FA936A61BD644720024D04D /* SFNavTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936A51BD644720024D04D /* SFNavTitleView.m */; };
 		0FA936AC1BD792430024D04D /* SFNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936AB1BD792430024D04D /* SFNewViewController.m */; };
 		0FA936B31BD7AD2E0024D04D /* UIView+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936B21BD7AD2E0024D04D /* UIView+Ext.m */; };
+		0FE50C2D1BDF82B600B33CBE /* SFPhotoPickedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE50C2C1BDF82B600B33CBE /* SFPhotoPickedView.m */; };
 		0FF841EA1BD8C0F200048DC7 /* SFPhotoGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841E91BD8C0F200048DC7 /* SFPhotoGroupViewController.m */; };
 		0FF841EC1BD8C15800048DC7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF841EB1BD8C15800048DC7 /* AssetsLibrary.framework */; };
 		0FF841EF1BD8C80F00048DC7 /* SFPhotoGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841EE1BD8C80F00048DC7 /* SFPhotoGroupCell.m */; };
@@ -71,6 +72,8 @@
 		0FA936AB1BD792430024D04D /* SFNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFNewViewController.m; path = SFViewController/SFNewViewController.m; sourceTree = "<group>"; };
 		0FA936B11BD7AD2E0024D04D /* UIView+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Ext.h"; path = "SFCategory/UIView+Ext.h"; sourceTree = "<group>"; };
 		0FA936B21BD7AD2E0024D04D /* UIView+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Ext.m"; path = "SFCategory/UIView+Ext.m"; sourceTree = "<group>"; };
+		0FE50C2B1BDF82B600B33CBE /* SFPhotoPickedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFPhotoPickedView.h; path = SFCommon/SFPhotoPicker/SFPhotoPickedView.h; sourceTree = "<group>"; };
+		0FE50C2C1BDF82B600B33CBE /* SFPhotoPickedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFPhotoPickedView.m; path = SFCommon/SFPhotoPicker/SFPhotoPickedView.m; sourceTree = "<group>"; };
 		0FF841E61BD8C02A00048DC7 /* SFUIDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFUIDefine.h; path = SFHelper/SFUIDefine.h; sourceTree = "<group>"; };
 		0FF841E81BD8C0F200048DC7 /* SFPhotoGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFPhotoGroupViewController.h; path = SFCommon/SFPhotoPicker/SFPhotoGroupViewController.h; sourceTree = "<group>"; };
 		0FF841E91BD8C0F200048DC7 /* SFPhotoGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFPhotoGroupViewController.m; path = SFCommon/SFPhotoPicker/SFPhotoGroupViewController.m; sourceTree = "<group>"; };
@@ -238,6 +241,8 @@
 				0FF841F11BD8D3D000048DC7 /* SFPhotoPickerViewController.m */,
 				0FF841F41BD8DF5500048DC7 /* SFPhotoPickerCell.h */,
 				0FF841F51BD8DF5500048DC7 /* SFPhotoPickerCell.m */,
+				0FE50C2B1BDF82B600B33CBE /* SFPhotoPickedView.h */,
+				0FE50C2C1BDF82B600B33CBE /* SFPhotoPickedView.m */,
 			);
 			name = SFPhotoPicker;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FE50C2D1BDF82B600B33CBE /* SFPhotoPickedView.m in Sources */,
 				0FA936981BD636740024D04D /* SFBaseViewController.m in Sources */,
 				0FA9369E1BD636C60024D04D /* SFHomeViewController.m in Sources */,
 				0F36C0241BD91946007A3D72 /* SFImageShowViewController.m in Sources */,
