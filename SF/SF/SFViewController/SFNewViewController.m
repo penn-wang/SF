@@ -8,10 +8,11 @@
 
 #import "SFNewViewController.h"
 #import "SFPhotoGroupViewController.h"
+#import "SFTextView.h"
 
 @interface SFNewViewController ()<UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property (nonatomic, strong) UITextView *textView;
+@property (nonatomic, strong) SFTextView *textView;
 
 @end
 
@@ -23,9 +24,10 @@
     // Do any additional setup after loading the view.
     [self leftNavItemCancel];
     [self rightNavItemWithName:@"保存"];
-    self.textView = [SFUICreator SFCommonTextView:self frame:CGRectMake(10, self.navOffset+10, self.screenWidth-20, 100)];
-    self.textView.backgroundColor = [UIColor lightGrayColor];
-    self.textView.text = @"保存";
+    self.textView = [[SFTextView alloc] initWithFrame:CGRectMake(10, self.navOffset+10, self.screenWidth-20, 100) placeHolder:@"请输入内容"];
+//    self.textView = [SFUICreator SFCommonTextView:self frame:CGRectMake(10, self.navOffset+10, self.screenWidth-20, 100)];
+    self.textView.backgroundColor = [UIColor greenColor];
+//    self.textView.text = @"保存";
     [self.view addSubview:self.textView];
 }
 

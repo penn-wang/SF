@@ -19,6 +19,11 @@
 + (UITextView *)SFCommonTextView:(id)delegate;
 + (UITextView *)SFCommonTextView:(id)delegate frame:(CGRect)frame;
 
+
 + (UIView *)SFCommonLine:(CGPoint)startPoint;
 + (UIView *)SFCommonLine;
+
++ (UILabel *)SFCommonLabel:(CGRect)frame;
++ (UILabel *)SFCommonLabel;
+
 @end

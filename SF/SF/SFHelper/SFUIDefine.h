@@ -10,3 +10,5 @@
 #define NAV_TITLE_FONT      [UIFont boldSystemFontOfSize:18.0f]
 #define NAV_TITLE_COLOR     [UIColor darkTextColor]
 #define TEXT_NORMAL_FONT    [UIFont systemFontOfSize:16.0f]
+#define TEXT_NORMAL_COLOR   [UIColor darkTextColor]
+#define TEXT_LIGHT_COLOR    [UIColor lightTextColor]

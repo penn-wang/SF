@@ -20,6 +20,7 @@
 
     #import "SFCategory/UIView+Ext.h"
     #import "SFCategory/UIImage+Scale.h"
+    #import "SFCategory/NSString+Extension.h"
 
 #endif
 

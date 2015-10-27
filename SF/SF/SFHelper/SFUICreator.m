@@ -27,10 +27,10 @@
 
 + (UITextView *)SFCommonTextView:(id)delegate {
     UITextView *textView = [[UITextView alloc] init];
-    textView.textColor = [UIColor darkTextColor];
+    textView.textColor = TEXT_NORMAL_COLOR;
     textView.font =  TEXT_NORMAL_FONT;
     textView.delegate = delegate;
-    textView.backgroundColor = [UIColor whiteColor];
+    textView.backgroundColor = [UIColor clearColor];
     textView.returnKeyType = UIReturnKeyDefault;
     textView.keyboardType = UIKeyboardTypeDefault;
     textView.scrollEnabled = YES;
@@ -55,6 +55,22 @@
     UIView *v = [[UIView alloc] init];
     v.backgroundColor = [UIColor lightGrayColor];
     return v;
+}
+
++ (UILabel *)SFCommonLabel:(CGRect)frame {
+    UILabel *label = [[self class] SFCommonLabel];
+    label.frame = frame;
+    return label;
+}
+
++ (UILabel *)SFCommonLabel {
+    UILabel *label = [[UILabel alloc] init];
+    label.textAlignment = NSTextAlignmentLeft;
+    label.numberOfLines = 0;
+    label.font = TEXT_NORMAL_FONT;
+    label.textColor = TEXT_NORMAL_COLOR;
+    label.backgroundColor = [UIColor clearColor];
+    return label;
 }
 
 @end
