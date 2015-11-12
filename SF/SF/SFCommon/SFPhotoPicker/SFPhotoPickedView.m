@@ -7,36 +7,23 @@
 //
 
 #import "SFPhotoPickedView.h"
+#import "SFPhotoPickerData.h"
 
-#pragma -mark -
-#pragma -mark -SFPhotoPickedViewData
-
-@implementation SFPhotoPickedViewData
-
-- (id)initWithBigImage:(UIImage *)bigImage smallImage:(UIImage *)smallImage {
-    if (self = [super init]) {
-        self.bigImage = bigImage;
-        self.smallImage = smallImage;
-    }
-    return self;
-}
-
-@end
+static const NSInteger imageBtnTag = 10000;
 
 #pragma -mark -
 #pragma -mark -SFPhotoPickedView
 
 @interface SFPhotoPickedView () {
-    UIView *_addView;
+    UIButton *_addButton;
     
     CGFloat _perLength;
     CGFloat _margin;
     NSInteger _numbers;
     
-    NSMutableArray *_imageMutArray;
     NSMutableArray *_dataMutArray;
-}
 
+}
 @end
 
 @implementation SFPhotoPickedView
@@ -45,29 +32,24 @@
     if (self = [super init]) {
         [self initData];
         self.frame = CGRectMake(0, originY, [UIScreen mainScreen].bounds.size.width, _perLength+_margin);
-        [self initContentViews];
+        [self addAddButton:CGRectMake(_margin, _margin/2, _perLength, _perLength)];
     }
     return self;
 }
-
-//- (id)initWithFrame:(CGRect)frame {
-//    if (self = [self initWithOriginY:frame.origin.y]) {
-//    }
-//    return self;
-//}
 
 - (void)initData {
     _margin = 5.0f;
     _numbers = 4;
     _perLength = ([UIScreen mainScreen].bounds.size.width-(_numbers+1)*_margin)/_numbers;
-    _imageMutArray = [[NSMutableArray alloc] init];
+
     _dataMutArray = [[NSMutableArray alloc] init];
 }
 
-- (void)initContentViews {
-    _addView = [[UIView alloc] initWithFrame:CGRectMake(_margin, _margin/2, _perLength, _perLength)];
-    _addView.backgroundColor = [UIColor grayColor];
-    [self addSubview:_addView];
+- (void)addAddButton:(CGRect)frame {
+    _addButton = [[UIButton alloc] initWithFrame:frame];
+    _addButton.backgroundColor = [UIColor redColor];
+    [_addButton addTarget:self action:@selector(clickOnAddButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_addButton];
 }
 
 - (void)resetContentViewsByData {
@@ -78,27 +60,29 @@
         [subV removeFromSuperview];
     }
     for (NSInteger i=0; i<_dataMutArray.count; i++) {
-        SFPhotoPickedViewData *data = [_dataMutArray objectAtIndex:i];
+        SFPhotoPickerViewData *data = [_dataMutArray objectAtIndex:i];
         NSInteger x = i%_numbers;
         NSInteger y = i/_numbers;
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(_margin+(_margin+_perLength)*x, _margin/2+(_margin/2+_perLength)*y, _perLength, _perLength)];
-        imageView.image = data.smallImage;
-        [self addSubview:imageView];
+        UIButton *imageBtn = [[UIButton alloc] initWithFrame:CGRectMake(_margin+(_margin+_perLength)*x, _margin/2+(_margin/2+_perLength)*y, _perLength, _perLength)];
+        [imageBtn addTarget:self action:@selector(showPhoto:) forControlEvents:UIControlEventTouchUpInside];
+        [imageBtn setBackgroundImage:data.smallImage forState:UIControlStateNormal];
+        imageBtn.tag = imageBtnTag+i;
+        [self addSubview:imageBtn];
     }
     NSInteger count = _dataMutArray.count;
-    NSInteger addX = count%_numbers==0?0:count%_numbers;
+    NSInteger addX = count%_numbers;
     NSInteger addY = count%_numbers==0?count/_numbers+1:count/_numbers+0;
-    _addView = [[UIView alloc] initWithFrame:CGRectMake(_margin+(_margin+_perLength)*addX, _margin/2+(_margin/2+_perLength)*addY, _perLength, _perLength)];
-    _addView.backgroundColor = [UIColor redColor];
-    [self addSubview:_addView];
+    [self addAddButton:CGRectMake(_margin+(_margin+_perLength)*addX, _margin/2+(_margin/2+_perLength)*addY, _perLength, _perLength)];
 }
 
-- (void)addViews:(NSArray *)dataArray {
+- (void)addPhotoImageViews:(NSArray *)dataArray {
     if (dataArray==nil || dataArray.count<=0) {
         return;
     }
     [_dataMutArray addObjectsFromArray:dataArray];
     [self resetContentViewsByData];
+    CGRect rect = self.frame;
+    self.frame = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, [self getHeight]);
 }
 
 
@@ -108,6 +92,18 @@
     return y*(_margin+_perLength);
 }
 
+- (void)clickOnAddButton:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(shouldAddPhotos)]) {
+        [self.delegate shouldAddPhotos];
+    }
+}
+
+- (void)showPhoto:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(shouldShowPhotos:index:)]) {
+        [self.delegate shouldShowPhotos:_dataMutArray index:(btn.tag-imageBtnTag)];
+    }
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

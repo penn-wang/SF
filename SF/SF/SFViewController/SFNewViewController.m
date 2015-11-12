@@ -10,10 +10,12 @@
 #import "SFPhotoGroupViewController.h"
 #import "SFTextView.h"
 #import "SFPhotoPickedView.h"
+#import "SFPhotoPickerData.h"
 
-@interface SFNewViewController ()<UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface SFNewViewController ()<UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, SFPhotoPickedViewDelegate>
 
 @property (nonatomic, strong) SFTextView *textView;
+@property (nonatomic, strong) SFPhotoPickedView *pickedViews;
 
 @end
 
@@ -29,16 +31,18 @@
     self.textView.backgroundColor = [UIColor greenColor];
     [self.view addSubview:self.textView];
     
-    SFPhotoPickedView *v = [[SFPhotoPickedView alloc] initWithOriginY:self.textView.bottom+20];
-    v.backgroundColor = [UIColor grayColor];
-    [self.view addSubview:v];
+    self.pickedViews = [[SFPhotoPickedView alloc] initWithOriginY:self.textView.bottom+20];
+    self.pickedViews.backgroundColor = [UIColor grayColor];
+    self.pickedViews.delegate = self;
+    [self.view addSubview:self.pickedViews];
+    
     NSMutableArray *testArray = [[NSMutableArray alloc] init];
     for (NSInteger i=0; i<5; i++) {
         UIImage *image = [UIImage imageNamed:@"photo_picker_no"];
-        SFPhotoPickedViewData *data = [[SFPhotoPickedViewData alloc] initWithBigImage:image smallImage:image];
+        SFPhotoPickerViewData *data = [[SFPhotoPickerViewData alloc] initWithBigImage:image smallImage:image];
         [testArray addObject:data];
     }
-    [v addViews:testArray];
+    [self.pickedViews addPhotoImageViews:testArray];
 }
 
 - (void)didClickOnLeftNavItem {
@@ -51,22 +55,7 @@
 
 - (void)didClickOnRigthNavItem {
     
-//    [super.navigationController setNavigationBarHidden:YES animated:YES];
-    
-    UIAlertController * alertController = [UIAlertController alertControllerWithTitle: nil                                                                             message: nil                                                                       preferredStyle:UIAlertControllerStyleActionSheet];
-    //添加Button
-    [alertController addAction: [UIAlertAction actionWithTitle: @"拍照" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        //处理点击拍照
-        [self takePhoto];
-    }]];
-    [alertController addAction: [UIAlertAction actionWithTitle: @"从相册选取" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-//        [self LocalPhoto];
-        SFPhotoGroupViewController *photoGroup = [[SFPhotoGroupViewController alloc] init];
-        [self.navigationController pushViewController:photoGroup animated:YES];
-    }]];
-    [alertController addAction: [UIAlertAction actionWithTitle: @"取消" style: UIAlertActionStyleCancel handler:nil]];
-    
-    [self presentViewController: alertController animated: YES completion: nil];
+
 }
 
 #pragma -mark -
@@ -92,7 +81,6 @@
 //打开本地相册
 -(void)LocalPhoto {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     picker.delegate = self;
     //设置选择后的图片可被编辑
@@ -122,10 +110,8 @@
         //图片保存的路径
         //这里将图片放在沙盒的documents文件夹中
         NSString * DocumentsPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-        
         //文件管理器
         NSFileManager *fileManager = [NSFileManager defaultManager];
-        
         //把刚刚图片转换的data对象拷贝至沙盒中 并保存为image.png
         [fileManager createDirectoryAtPath:DocumentsPath withIntermediateDirectories:YES attributes:nil error:nil];
         [fileManager createFileAtPath:[DocumentsPath stringByAppendingString:@"/image.png"] contents:data attributes:nil];
@@ -135,7 +121,6 @@
         [picker dismissViewControllerAnimated:YES completion:^{
             
         }];
-        
         //创建一个选择后图片的小图标放在下方
         //类似微薄选择图后的效果
         UIImageView *smallimage = [[UIImageView alloc] initWithFrame:
@@ -153,6 +138,31 @@
     [picker dismissViewControllerAnimated:YES completion:^{
         
     }];
+}
+
+#pragma -mark -
+#pragma -mark -SFPhotoPickedViewDelegate
+
+- (void)shouldAddPhotos {
+    
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle: nil                                                                             message: nil                                                                       preferredStyle:UIAlertControllerStyleActionSheet];
+    //添加Button
+    [alertController addAction: [UIAlertAction actionWithTitle: @"拍照" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        //处理点击拍照
+        [self takePhoto];
+    }]];
+    [alertController addAction: [UIAlertAction actionWithTitle: @"从相册选取" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        //        [self LocalPhoto];
+        SFPhotoGroupViewController *photoGroup = [[SFPhotoGroupViewController alloc] init];
+        [self.navigationController pushViewController:photoGroup animated:YES];
+    }]];
+    [alertController addAction: [UIAlertAction actionWithTitle: @"取消" style: UIAlertActionStyleCancel handler:nil]];
+    
+    [self presentViewController: alertController animated: YES completion: nil];
+}
+
+- (void)shouldShowPhotos:(NSArray *)dataArray index:(NSInteger)aIndex {
+    
 }
 
 //-(void)sendInfo {

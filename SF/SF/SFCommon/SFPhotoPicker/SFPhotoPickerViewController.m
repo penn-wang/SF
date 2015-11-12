@@ -11,10 +11,11 @@
 #import "SFPhotoPickerCell.h"
 #import "SFImageShowViewController.h"
 
+const NSString *photoSavedNotifiCation = @"photoSavedNotifiCation";
+
 @interface SFPhotoPickerViewController ()<UITableViewDataSource, UITableViewDelegate,SFPhotoPickerCellDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
-
 @property (nonatomic, strong) NSMutableArray *pickedPhotos;
 
 @end

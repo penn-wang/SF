@@ -8,20 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SFPhotoPickedViewData : NSObject
 
-@property (nonatomic, strong) UIImage *bigImage;
-@property (nonatomic, strong) UIImage *smallImage;
-- (id)initWithBigImage:(UIImage *)bigImage smallImage:(UIImage *)smallImage;
-
+@protocol SFPhotoPickedViewDelegate <NSObject>
+@optional
+- (void)shouldAddPhotos;
+- (void)shouldShowPhotos:(NSArray *)dataArray index:(NSInteger)aIndex;
 @end
 
 @interface SFPhotoPickedView : UIView
 
+@property (nonatomic, strong) id<SFPhotoPickedViewDelegate> delegate;
+
 - (id)initWithOriginY:(CGFloat)originY;
+- (void)addPhotoImageViews:(NSArray *)dataArray;
 
-- (void)addViews:(NSArray *)dataArray;
-
-- (CGFloat)getHeight;
 
 @end

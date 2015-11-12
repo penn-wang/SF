@@ -20,8 +20,6 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
     E_Cell_Type_FourImg
 };
 
-#pragma -mark -
-#pragma -mark - PPCellImage
 
 @implementation SFPhotoCellImageData
 
@@ -32,13 +30,10 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
     }
     return self;
 }
-
 @end
 
-@interface PPCellImage ()
-
-@end
-
+#pragma -mark -
+#pragma -mark - PPCellImage
 @implementation PPCellImage
 
 - (id)init {
