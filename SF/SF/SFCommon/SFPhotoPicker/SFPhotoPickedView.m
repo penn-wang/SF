@@ -7,7 +7,7 @@
 //
 
 #import "SFPhotoPickedView.h"
-#import "SFPhotoPickerData.h"
+#import "SFPhotoData.h"
 
 static const NSInteger imageBtnTag = 10000;
 
@@ -60,7 +60,7 @@ static const NSInteger imageBtnTag = 10000;
         [subV removeFromSuperview];
     }
     for (NSInteger i=0; i<_dataMutArray.count; i++) {
-        SFPhotoPickerViewData *data = [_dataMutArray objectAtIndex:i];
+        SFPhotoData *data = [_dataMutArray objectAtIndex:i];
         NSInteger x = i%_numbers;
         NSInteger y = i/_numbers;
         UIButton *imageBtn = [[UIButton alloc] initWithFrame:CGRectMake(_margin+(_margin+_perLength)*x, _margin/2+(_margin/2+_perLength)*y, _perLength, _perLength)];

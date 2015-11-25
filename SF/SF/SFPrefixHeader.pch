@@ -15,6 +15,7 @@
 #ifdef __OBJC__
     #import "SFDB/SFDBDefine.h"
 
+    #import "SFHelper/SFHelper.h"
     #import "SFHelper/SFUIDefine.h"
     #import "SFHelper/SFUICreator.h"
     #import "SFHelper/SFNotification.h"

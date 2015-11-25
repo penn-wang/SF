@@ -8,7 +8,6 @@
 
 #import "SFPhotoPickerHelper.h"
 
-
 @implementation SFPhotoPickerHelper
 
 + (void)savePhotos:(NSArray *)photoArray {

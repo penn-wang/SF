@@ -1,23 +1,17 @@
 //
-//  SFPhotoPickerData.h
+//  SFPhotoData.h
 //  SF
 //
-//  Created by penn on 15/10/28.
+//  Created by penn on 15/11/26.
 //  Copyright © 2015年 SF. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface SFPhotoPickerViewData : NSObject
+@interface SFPhotoData : NSObject
 
 @property (nonatomic, strong) UIImage *bigImage;
 @property (nonatomic, strong) UIImage *smallImage;
-- (id)initWithBigImage:(UIImage *)bigImage smallImage:(UIImage *)smallImage;
-
-@end
-
-
-@interface SFPhotoPathData : NSObject
 
 @property (nonatomic, strong) NSString *path;
 @property (nonatomic, strong) NSString *samllName;

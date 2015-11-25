@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
-
 @interface SFPhotoPickerHelper : NSObject
 
 + (void)savePhotos:(NSArray *)photoArray;

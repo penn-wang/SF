@@ -27,9 +27,11 @@
 		0FA936AC1BD792430024D04D /* SFNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936AB1BD792430024D04D /* SFNewViewController.m */; };
 		0FA936B31BD7AD2E0024D04D /* UIView+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936B21BD7AD2E0024D04D /* UIView+Ext.m */; };
 		0FE40ADE1C06129900260D6B /* SFClickImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE40ADD1C06129900260D6B /* SFClickImageView.m */; };
+		0FE40AE11C0616E600260D6B /* SFPhotoSaver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE40AE01C0616E600260D6B /* SFPhotoSaver.m */; };
+		0FE40AE71C061B1E00260D6B /* SFHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE40AE61C061B1E00260D6B /* SFHelper.m */; };
+		0FE40AEA1C06260C00260D6B /* SFPhotoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE40AE91C06260C00260D6B /* SFPhotoData.m */; };
 		0FE50C2D1BDF82B600B33CBE /* SFPhotoPickedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE50C2C1BDF82B600B33CBE /* SFPhotoPickedView.m */; };
 		0FE50C301BE06EBC00B33CBE /* SFPhotoPickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE50C2F1BE06EBC00B33CBE /* SFPhotoPickerHelper.m */; };
-		0FE50C331BE0702A00B33CBE /* SFPhotoPickerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE50C321BE0702A00B33CBE /* SFPhotoPickerData.m */; };
 		0FF841EA1BD8C0F200048DC7 /* SFPhotoGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841E91BD8C0F200048DC7 /* SFPhotoGroupViewController.m */; };
 		0FF841EC1BD8C15800048DC7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF841EB1BD8C15800048DC7 /* AssetsLibrary.framework */; };
 		0FF841EF1BD8C80F00048DC7 /* SFPhotoGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841EE1BD8C80F00048DC7 /* SFPhotoGroupCell.m */; };
@@ -77,12 +79,16 @@
 		0FA936B21BD7AD2E0024D04D /* UIView+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Ext.m"; path = "SFCategory/UIView+Ext.m"; sourceTree = "<group>"; };
 		0FE40ADC1C06129900260D6B /* SFClickImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFClickImageView.h; path = SFViews/SFClickImageView.h; sourceTree = "<group>"; };
 		0FE40ADD1C06129900260D6B /* SFClickImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFClickImageView.m; path = SFViews/SFClickImageView.m; sourceTree = "<group>"; };
+		0FE40ADF1C0616E600260D6B /* SFPhotoSaver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFPhotoSaver.h; path = SFCommon/SFPhotoPicker/SFPhotoSaver.h; sourceTree = "<group>"; };
+		0FE40AE01C0616E600260D6B /* SFPhotoSaver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFPhotoSaver.m; path = SFCommon/SFPhotoPicker/SFPhotoSaver.m; sourceTree = "<group>"; };
+		0FE40AE51C061B1E00260D6B /* SFHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFHelper.h; path = SFHelper/SFHelper.h; sourceTree = "<group>"; };
+		0FE40AE61C061B1E00260D6B /* SFHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFHelper.m; path = SFHelper/SFHelper.m; sourceTree = "<group>"; };
+		0FE40AE81C06260C00260D6B /* SFPhotoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFPhotoData.h; path = SFCommon/SFPhotoPicker/SFPhotoData.h; sourceTree = "<group>"; };
+		0FE40AE91C06260C00260D6B /* SFPhotoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFPhotoData.m; path = SFCommon/SFPhotoPicker/SFPhotoData.m; sourceTree = "<group>"; };
 		0FE50C2B1BDF82B600B33CBE /* SFPhotoPickedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFPhotoPickedView.h; path = SFCommon/SFPhotoPicker/SFPhotoPickedView.h; sourceTree = "<group>"; };
 		0FE50C2C1BDF82B600B33CBE /* SFPhotoPickedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFPhotoPickedView.m; path = SFCommon/SFPhotoPicker/SFPhotoPickedView.m; sourceTree = "<group>"; };
 		0FE50C2E1BE06EBC00B33CBE /* SFPhotoPickerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFPhotoPickerHelper.h; path = SFCommon/SFPhotoPicker/SFPhotoPickerHelper.h; sourceTree = "<group>"; };
 		0FE50C2F1BE06EBC00B33CBE /* SFPhotoPickerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFPhotoPickerHelper.m; path = SFCommon/SFPhotoPicker/SFPhotoPickerHelper.m; sourceTree = "<group>"; };
-		0FE50C311BE0702A00B33CBE /* SFPhotoPickerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFPhotoPickerData.h; path = SFCommon/SFPhotoPicker/SFPhotoPickerData.h; sourceTree = "<group>"; };
-		0FE50C321BE0702A00B33CBE /* SFPhotoPickerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFPhotoPickerData.m; path = SFCommon/SFPhotoPicker/SFPhotoPickerData.m; sourceTree = "<group>"; };
 		0FF841E61BD8C02A00048DC7 /* SFUIDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFUIDefine.h; path = SFHelper/SFUIDefine.h; sourceTree = "<group>"; };
 		0FF841E81BD8C0F200048DC7 /* SFPhotoGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFPhotoGroupViewController.h; path = SFCommon/SFPhotoPicker/SFPhotoGroupViewController.h; sourceTree = "<group>"; };
 		0FF841E91BD8C0F200048DC7 /* SFPhotoGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFPhotoGroupViewController.m; path = SFCommon/SFPhotoPicker/SFPhotoGroupViewController.m; sourceTree = "<group>"; };
@@ -194,6 +200,8 @@
 		0FA9369F1BD63F0E0024D04D /* SFHelper */ = {
 			isa = PBXGroup;
 			children = (
+				0FE40AE51C061B1E00260D6B /* SFHelper.h */,
+				0FE40AE61C061B1E00260D6B /* SFHelper.m */,
 				0F01560B1BF4BA2800429A15 /* SFNotification.h */,
 				0FF841E61BD8C02A00048DC7 /* SFUIDefine.h */,
 				0FA936A01BD63F2E0024D04D /* SFUICreator.h */,
@@ -253,8 +261,10 @@
 				0FE50C2C1BDF82B600B33CBE /* SFPhotoPickedView.m */,
 				0FE50C2E1BE06EBC00B33CBE /* SFPhotoPickerHelper.h */,
 				0FE50C2F1BE06EBC00B33CBE /* SFPhotoPickerHelper.m */,
-				0FE50C311BE0702A00B33CBE /* SFPhotoPickerData.h */,
-				0FE50C321BE0702A00B33CBE /* SFPhotoPickerData.m */,
+				0FE40ADF1C0616E600260D6B /* SFPhotoSaver.h */,
+				0FE40AE01C0616E600260D6B /* SFPhotoSaver.m */,
+				0FE40AE81C06260C00260D6B /* SFPhotoData.h */,
+				0FE40AE91C06260C00260D6B /* SFPhotoData.m */,
 			);
 			name = SFPhotoPicker;
 			sourceTree = "<group>";
@@ -337,18 +347,20 @@
 				0FA936A61BD644720024D04D /* SFNavTitleView.m in Sources */,
 				0F2985CA1B9D860000D13E97 /* SFDBWorker.m in Sources */,
 				0FF841F21BD8D3D000048DC7 /* SFPhotoPickerViewController.m in Sources */,
+				0FE40AE11C0616E600260D6B /* SFPhotoSaver.m in Sources */,
 				0F4034C61BDF286200986C75 /* NSString+Extension.m in Sources */,
 				0F4034C31BDE310400986C75 /* SFTextView.m in Sources */,
+				0FE40AEA1C06260C00260D6B /* SFPhotoData.m in Sources */,
 				0F6162251B9BE61B00E07628 /* AppDelegate.m in Sources */,
 				0FF841EF1BD8C80F00048DC7 /* SFPhotoGroupCell.m in Sources */,
 				0FA936AC1BD792430024D04D /* SFNewViewController.m in Sources */,
 				0FE50C301BE06EBC00B33CBE /* SFPhotoPickerHelper.m in Sources */,
+				0FE40AE71C061B1E00260D6B /* SFHelper.m in Sources */,
 				0FA936B31BD7AD2E0024D04D /* UIView+Ext.m in Sources */,
 				0FF841F61BD8DF5500048DC7 /* SFPhotoPickerCell.m in Sources */,
 				0F2985D41B9D8A3300D13E97 /* SFDBHelper.m in Sources */,
 				0F6162221B9BE61B00E07628 /* main.m in Sources */,
 				0FF841EA1BD8C0F200048DC7 /* SFPhotoGroupViewController.m in Sources */,
-				0FE50C331BE0702A00B33CBE /* SFPhotoPickerData.m in Sources */,
 				0FA936A21BD63F2E0024D04D /* SFUICreator.m in Sources */,
 				0FE40ADE1C06129900260D6B /* SFClickImageView.m in Sources */,
 				0F4034C01BDE29DA00986C75 /* UIImage+Scale.m in Sources */,

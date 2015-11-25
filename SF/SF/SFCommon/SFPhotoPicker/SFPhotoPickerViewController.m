@@ -29,6 +29,9 @@ const NSString *photoSavedNotifiCation = @"photoSavedNotifiCation";
     self.tableView = [SFUICreator SFCommonTableView:self frame:CGRectMake(0, self.navOffset, self.screenWidth, self.contentHeight)];
     [self.view addSubview:self.tableView];
     self.pickedPhotos = [[NSMutableArray alloc] init];
+    
+    NSLog(@"%@", [SFHelper timeStampOfNow]);
+    
 }
 
 - (void)didClickOnRigthNavItem {

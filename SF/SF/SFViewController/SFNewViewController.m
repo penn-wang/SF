@@ -10,7 +10,7 @@
 #import "SFPhotoGroupViewController.h"
 #import "SFTextView.h"
 #import "SFPhotoPickedView.h"
-#import "SFPhotoPickerData.h"
+#import "SFPhotoData.h"
 
 @interface SFNewViewController ()<UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, SFPhotoPickedViewDelegate>
 
@@ -39,7 +39,10 @@
     NSMutableArray *testArray = [[NSMutableArray alloc] init];
     for (NSInteger i=0; i<5; i++) {
         UIImage *image = [UIImage imageNamed:@"photo_picker_no"];
-        SFPhotoPickerViewData *data = [[SFPhotoPickerViewData alloc] initWithBigImage:image smallImage:image];
+        SFPhotoData *data = [[SFPhotoData alloc] init];
+        data.bigImage = image;
+        data.smallImage = image;
+
         [testArray addObject:data];
     }
     [self.pickedViews addPhotoImageViews:testArray];
