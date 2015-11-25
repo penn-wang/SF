@@ -8,8 +8,11 @@
 
 #import "SFBaseViewController.h"
 
+
 @interface SFImageShowViewController : SFBaseViewController
 
 @property (nonatomic, strong) NSArray *imageArray;
+
+- (void)rightNavItemSave;
 
 @end

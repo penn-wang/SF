@@ -38,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F01560B1BF4BA2800429A15 /* SFNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFNotification.h; path = SFHelper/SFNotification.h; sourceTree = "<group>"; };
 		0F2985C81B9D860000D13E97 /* SFDBWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFDBWorker.h; path = SFDB/SFDBWorker.h; sourceTree = "<group>"; };
 		0F2985C91B9D860000D13E97 /* SFDBWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFDBWorker.m; path = SFDB/SFDBWorker.m; sourceTree = "<group>"; };
 		0F2985CB1B9D864300D13E97 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -193,6 +194,7 @@
 		0FA9369F1BD63F0E0024D04D /* SFHelper */ = {
 			isa = PBXGroup;
 			children = (
+				0F01560B1BF4BA2800429A15 /* SFNotification.h */,
 				0FF841E61BD8C02A00048DC7 /* SFUIDefine.h */,
 				0FA936A01BD63F2E0024D04D /* SFUICreator.h */,
 				0FA936A11BD63F2E0024D04D /* SFUICreator.m */,

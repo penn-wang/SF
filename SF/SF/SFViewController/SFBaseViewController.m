@@ -67,6 +67,10 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 
+- (void)rightNavItemSave {
+    
+}
+
 - (void)didClickOnRigthNavItem {
     //请重写此方法
 }

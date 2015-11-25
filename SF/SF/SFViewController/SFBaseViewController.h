@@ -21,6 +21,9 @@
 - (void)rightNavItemWithName:(NSString *)name;
 
 - (void)rightNavItemSet;
+- (void)rightNavItemSave;
+
+
 - (void)leftNavItemBack;
 - (void)leftNavItemCancel;
 @end
