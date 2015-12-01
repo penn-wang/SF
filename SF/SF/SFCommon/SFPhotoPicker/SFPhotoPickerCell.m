@@ -8,6 +8,8 @@
 
 #import "SFPhotoPickerCell.h"
 #import "SFClickImageView.h"
+#import "SFPhotoSaver.h"
+
 
 static const CGFloat cellPerMargin = 5;
 const NSInteger cellImageMaxCount = 4;
@@ -19,7 +21,6 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
     E_Cell_Type_ThreeImg,
     E_Cell_Type_FourImg
 };
-
 
 @implementation SFPhotoCellImageData
 
@@ -97,7 +98,19 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
 }
 
 - (void)didClickOnPicker:(id)sender {
+    if (!self.status) {
+        if ([SFPhotoSaver sharedPhotoSaver].savedPhotoCount >= 5) {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(didFullPhoto)]) {
+                [self.delegate didFullPhoto];
+            }
+            return;
+        }
+        [SFPhotoSaver sharedPhotoSaver].savedPhotoCount++;
+    }
     self.status = !self.status;
+    if (!self.status) {
+        [SFPhotoSaver sharedPhotoSaver].savedPhotoCount--;
+    }
     if(self.status) {
         self.pickerImageView.image = [UIImage imageNamed:@"photo_picker_yes"];
     } else {
@@ -217,18 +230,25 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
 #pragma -mark -
 #pragma -mark -PPCellImageDelegate
 
-- (void)didClickOnPicker:(NSInteger)aTag status:(BOOL)status{
+- (void)didFullPhoto {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(cannotPickerPhoto)]) {
+        [self.delegate cannotPickerPhoto];
+    }
+}
 
+- (void)didClickOnPicker:(NSInteger)aTag status:(BOOL)status{
+    
     if(self.delegate && [self.delegate respondsToSelector:@selector(didPickImageWithIndex: withStatus:)]) {
         [self.delegate didPickImageWithIndex:(aTag-cellImageTag) withStatus:status];
     }
 }
 
-- (void)didClickOnImage:(NSInteger)aTag status:(BOOL)status{
+- (void)didClickOnImage:(NSInteger)aTag status:(BOOL)status {
     if(self.delegate && [self.delegate respondsToSelector:@selector(didClickOnImageWithIndex:withStatus:)]) {
         [self.delegate didClickOnImageWithIndex:(aTag-cellImageTag) withStatus:status];
     }
 }
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

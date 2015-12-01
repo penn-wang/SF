@@ -11,6 +11,9 @@
 #import "SFPhotoPickerCell.h"
 #import "SFImageShowViewController.h"
 
+#import "SFPhotoData.h"
+#import "SFPhotoSaver.h"
+
 const NSString *photoSavedNotifiCation = @"photoSavedNotifiCation";
 
 @interface SFPhotoPickerViewController ()<UITableViewDataSource, UITableViewDelegate,SFPhotoPickerCellDelegate>
@@ -31,10 +34,10 @@ const NSString *photoSavedNotifiCation = @"photoSavedNotifiCation";
     self.pickedPhotos = [[NSMutableArray alloc] init];
     
     NSLog(@"%@", [SFHelper timeStampOfNow]);
-    
 }
 
 - (void)didClickOnRigthNavItem {
+    [[SFPhotoSaver sharedPhotoSaver] savePhoto:self.pickedPhotos[0]];
     [self popToViewControllerWithName:@"SFNewViewController"];
 }
 
@@ -88,8 +91,10 @@ const NSString *photoSavedNotifiCation = @"photoSavedNotifiCation";
     if(status) {
         NSMutableArray *showPhotos = [[NSMutableArray alloc] init];
         for (NSInteger i=0; i<self.pickedPhotos.count; i++) {
-            ALAsset *asset = [self.pickedPhotos objectAtIndex:i];
-            [showPhotos addObject:[UIImage imageWithCGImage:[[asset defaultRepresentation] fullScreenImage]]];
+//            ALAsset *asset = [self.pickedPhotos objectAtIndex:i];
+//            [showPhotos addObject:[UIImage imageWithCGImage:[[asset defaultRepresentation] fullScreenImage]]];
+            SFPhotoData *data = self.pickedPhotos[i];
+            [showPhotos addObject:data.bigImage];
         }
         SFImageShowViewController *showVC = [[SFImageShowViewController alloc] init];
         showVC.imageArray = showPhotos;
@@ -104,11 +109,32 @@ const NSString *photoSavedNotifiCation = @"photoSavedNotifiCation";
 
 - (void)didPickImageWithIndex:(NSInteger)aIndex withStatus:(BOOL)status {
     ALAsset *asset = [self.photoArray objectAtIndex:aIndex];
+    
+    NSString *timeStr = [SFHelper timeStampOfNow];
+    NSString *prefix = [NSString stringWithFormat:@"%@%zd", timeStr,self.pickedPhotos.count];
+    SFPhotoData *photo = [[SFPhotoData alloc] initWithAsset:asset namePrefix:prefix];
     if(status) {
-        [self.pickedPhotos addObject:asset];
+        [self.pickedPhotos addObject:photo];
     } else {
-        [self.pickedPhotos removeObject:asset];
+        SFPhotoData *targetPhoto;
+        for (NSInteger i=0; i<self.pickedPhotos.count; i++) {
+            SFPhotoData *data = self.pickedPhotos[i];
+            NSData *data1 = UIImagePNGRepresentation(data.smallImage);
+            NSData *data2 = UIImagePNGRepresentation(photo.smallImage);
+            
+            if([data1 isEqual:data2]) {
+                targetPhoto = data;
+                break;
+            }
+        }
+        [self.pickedPhotos removeObject:targetPhoto];
     }
+}
+
+- (void)cannotPickerPhoto {
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"最多选择五张图片"                                                                             message: @"最多选择五张图片"                                                                       preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction: [UIAlertAction actionWithTitle: @"我知道了" style: UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController: alertController animated: YES completion: nil];
 }
 
 - (void)didReceiveMemoryWarning {

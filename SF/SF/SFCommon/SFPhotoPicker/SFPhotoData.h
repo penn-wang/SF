@@ -8,13 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+@class ALAsset;
+
 @interface SFPhotoData : NSObject
 
 @property (nonatomic, strong) UIImage *bigImage;
 @property (nonatomic, strong) UIImage *smallImage;
 
-@property (nonatomic, strong) NSString *path;
-@property (nonatomic, strong) NSString *samllName;
+@property (nonatomic, strong) NSString *preFix;
+@property (nonatomic, strong) NSString *smallName;
 @property (nonatomic, strong) NSString *bigName;
+
+- (id)initWithAsset:(ALAsset *)asset namePrefix:(NSString *)prefix;
+
+//- (NSString *)bigImagePath;
+//- (NSString *)smallImagePath;
 
 @end

@@ -16,14 +16,15 @@ extern const NSInteger cellImageMaxCount;
 @optional
 - (void)didClickOnImageWithIndex:(NSInteger)aIndex withStatus:(BOOL)status;
 - (void)didPickImageWithIndex:(NSInteger)aIndex withStatus:(BOOL)status;
+- (void)cannotPickerPhoto;
 @end
-
 
 @protocol PPCellImageDelegate <NSObject>
 
 @optional
 - (void)didClickOnImage:(NSInteger)aTag status:(BOOL)status;
 - (void)didClickOnPicker:(NSInteger)aTag status:(BOOL)status;
+- (void)didFullPhoto;
 @end
 
 @interface SFPhotoCellImageData : NSObject

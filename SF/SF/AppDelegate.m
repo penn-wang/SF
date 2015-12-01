@@ -10,12 +10,13 @@
 #import "SFHomeViewController.h"
 
 #import "SFDB/SFDBWorker.h"
+#import "SFPhotoSaver.h"
+
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -27,7 +28,7 @@
     [self.window makeKeyAndVisible];
     
     [[SFDBWorker sharedDBWorker] openDB];
-    
+    [[SFPhotoSaver sharedPhotoSaver] createTodayPhotoFolder];
     return YES;
 }
 

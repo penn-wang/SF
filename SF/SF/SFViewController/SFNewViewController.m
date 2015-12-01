@@ -11,6 +11,7 @@
 #import "SFTextView.h"
 #import "SFPhotoPickedView.h"
 #import "SFPhotoData.h"
+#import "SFPhotoSaver.h"
 
 @interface SFNewViewController ()<UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, SFPhotoPickedViewDelegate>
 
@@ -57,8 +58,7 @@
 }
 
 - (void)didClickOnRigthNavItem {
-    
-
+//    [[SFPhotoSaver sharedPhotoSaver] savePhoto:nil];
 }
 
 #pragma -mark -
