@@ -26,4 +26,7 @@
 
 - (void)leftNavItemBack;
 - (void)leftNavItemCancel;
+
+- (void)didClickOnLeftNavItem;
+
 @end

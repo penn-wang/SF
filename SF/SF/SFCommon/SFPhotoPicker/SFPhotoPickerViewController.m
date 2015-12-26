@@ -28,6 +28,7 @@ const NSString *photoSavedNotifiCation = @"photoSavedNotifiCation";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     [self rightNavItemWithName:@"保存"];
     self.tableView = [SFUICreator SFCommonTableView:self frame:CGRectMake(0, self.navOffset, self.screenWidth, self.contentHeight)];
     [self.view addSubview:self.tableView];
@@ -37,8 +38,19 @@ const NSString *photoSavedNotifiCation = @"photoSavedNotifiCation";
 }
 
 - (void)didClickOnRigthNavItem {
-    [[SFPhotoSaver sharedPhotoSaver] savePhoto:self.pickedPhotos[0]];
+    if (self.pickedPhotos.count<=0) {
+        return;
+    }
+    for (int i=0; i<self.pickedPhotos.count; i++) {
+        [[SFPhotoSaver sharedPhotoSaver] savePhoto:self.pickedPhotos[i]];
+    }
     [self popToViewControllerWithName:@"SFNewViewController"];
+    [SFPhotoSaver sharedPhotoSaver].savedPhotoCount = 0;
+}
+
+- (void)didClickOnLeftNavItem {
+    [super didClickOnLeftNavItem];
+    [SFPhotoSaver sharedPhotoSaver].savedPhotoCount = 0;
 }
 
 #pragma -mark -
@@ -132,9 +144,9 @@ const NSString *photoSavedNotifiCation = @"photoSavedNotifiCation";
 }
 
 - (void)cannotPickerPhoto {
-    UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"最多选择五张图片"                                                                             message: @"最多选择五张图片"                                                                       preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction: [UIAlertAction actionWithTitle: @"我知道了" style: UIAlertActionStyleCancel handler:nil]];
-    [self presentViewController: alertController animated: YES completion: nil];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"最多选择五张图片"                                                                             message:@"最多选择五张图片"                                                                       preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

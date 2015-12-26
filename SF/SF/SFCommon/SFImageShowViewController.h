@@ -13,6 +13,5 @@
 
 @property (nonatomic, strong) NSArray *imageArray;
 
-- (void)rightNavItemSave;
 
 @end

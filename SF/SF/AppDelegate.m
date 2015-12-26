@@ -27,7 +27,10 @@
     self.window.rootViewController = navVC;
     [self.window makeKeyAndVisible];
     
-    [[SFDBWorker sharedDBWorker] openDB];
+    if([[SFDBWorker sharedDBWorker] openDB]) {
+        [[SFDBWorker sharedDBWorker] createTable:@"my"];
+    }
+    
     [[SFPhotoSaver sharedPhotoSaver] createTodayPhotoFolder];
     return YES;
 }

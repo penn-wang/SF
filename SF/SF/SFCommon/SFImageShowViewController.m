@@ -22,12 +22,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _isHiddenNav = false;
+    self.navigationController.navigationBar.translucent =YES;
     [self initContentViews];
 }
 
 - (void)initContentViews {
     NSInteger pagCount = self.imageArray.count;
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.statusBarOffset, self.screenWidth, self.view.height)];
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.screenWidth, self.screenHeight)];
     _scrollView.contentSize = CGSizeMake(self.screenWidth*pagCount, self.contentHeight);
     _scrollView.pagingEnabled = true;
     _scrollView.delegate = self;

@@ -24,6 +24,8 @@
     self.contentHeight = self.screenHeight-64.0f;
     self.navOffset = 64.0f;
     self.statusBarOffset = 20.0f;
+    
+    [self leftNavItemBack];
 }
 
 - (void)popToViewControllerWithName:(NSString *)vcName {
@@ -44,6 +46,11 @@
     if(targetVC) {
         [self.navigationController popToViewController:targetVC animated:YES];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSLog(@"class:::%@", NSStringFromClass([self class]));
 }
 
 #pragma -mark -
