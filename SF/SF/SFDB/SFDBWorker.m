@@ -54,13 +54,12 @@ typedef NS_ENUM(NSInteger, SFDBWorkType) {
 
 - (BOOL)createTable:(NSString *)name {
     char *errMsg;
-    const char *SQL = [[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (ID INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)", name] UTF8String];
-    BOOL cc = SQLITE_OK == sqlite3_exec(_db, SQL, NULL, NULL, &errMsg);
-    return cc;
+    const char *SQL = [[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (ID INTEGER PRIMARY KEY AUTOINCREMENT, time INTEGER, msgType INTEGER, nameS TEXT, nameB TEXT, conent TEXT)", name] UTF8String];
+    return SQLITE_OK == sqlite3_exec(_db, SQL, NULL, NULL, &errMsg);
 }
 
 - (void)insertTable:(NSArray *)textArr {
-    
+//    INSERT INTO msg (time,  msgType,nameS,nameB,conent) Values ("123123124124124124124123123","29","nisd","sdnfdsf", "sdnfsdf") 
 }
 
 @end

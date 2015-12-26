@@ -12,13 +12,13 @@
 
 @implementation SFPhotoData
 
-- (id)initWithAsset:(ALAsset *)asset namePrefix:(NSString *)prefix {
+- (id)initWithAsset:(ALAsset *)asset namePrefix:(NSString *)prefix index:(NSInteger)aIndex {
     if (self = [super init]) {
         self.smallImage = [UIImage imageWithCGImage:[asset thumbnail]];
         self.bigImage = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullScreenImage]];
         
-        self.smallName = [NSString stringWithFormat:@"%@-s", prefix];
-        self.bigName = [NSString stringWithFormat:@"%@-b", prefix];
+        self.smallName = [NSString stringWithFormat:@"%@-s-%zd", prefix, aIndex];
+        self.bigName = [NSString stringWithFormat:@"%@-b-%zd", prefix, aIndex];
         self.preFix = prefix;
     }
     return self;

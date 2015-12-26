@@ -28,7 +28,7 @@
     [self.window makeKeyAndVisible];
     
     if([[SFDBWorker sharedDBWorker] openDB]) {
-        [[SFDBWorker sharedDBWorker] createTable:@"my"];
+        [[SFDBWorker sharedDBWorker] createTable:TableMsg];
     }
     
     [[SFPhotoSaver sharedPhotoSaver] createTodayPhotoFolder];

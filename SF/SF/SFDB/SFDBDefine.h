@@ -9,3 +9,6 @@
 #define DBFullName  @"sf.db"
 
 #define TableTest @"test"
+
+#define TableMsg @"msg"
+

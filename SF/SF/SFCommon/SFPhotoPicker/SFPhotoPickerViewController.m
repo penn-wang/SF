@@ -18,6 +18,7 @@ const NSString *photoSavedNotifiCation = @"photoSavedNotifiCation";
 
 @interface SFPhotoPickerViewController ()<UITableViewDataSource, UITableViewDelegate,SFPhotoPickerCellDelegate>
 
+@property (nonatomic, assign) NSInteger photoIndex;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *pickedPhotos;
 
@@ -28,6 +29,8 @@ const NSString *photoSavedNotifiCation = @"photoSavedNotifiCation";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    self.photoIndex = 0;
     
     [self rightNavItemWithName:@"保存"];
     self.tableView = [SFUICreator SFCommonTableView:self frame:CGRectMake(0, self.navOffset, self.screenWidth, self.contentHeight)];
@@ -124,7 +127,7 @@ const NSString *photoSavedNotifiCation = @"photoSavedNotifiCation";
     
     NSString *timeStr = [SFHelper timeStampOfNow];
     NSString *prefix = [NSString stringWithFormat:@"%@%zd", timeStr,self.pickedPhotos.count];
-    SFPhotoData *photo = [[SFPhotoData alloc] initWithAsset:asset namePrefix:prefix];
+    SFPhotoData *photo = [[SFPhotoData alloc] initWithAsset:asset namePrefix:prefix index:self.photoIndex++];
     if(status) {
         [self.pickedPhotos addObject:photo];
     } else {
