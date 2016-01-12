@@ -15,8 +15,8 @@
 		0F6162281B9BE61B00E07628 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6162271B9BE61B00E07628 /* ViewController.m */; };
 		0F61622D1B9BE61B00E07628 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F61622C1B9BE61B00E07628 /* Images.xcassets */; };
 		0F6162301B9BE61B00E07628 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F61622E1B9BE61B00E07628 /* LaunchScreen.xib */; };
-		0FA936901BD623F50024D04D /* RD in Resources */ = {isa = PBXBuildFile; fileRef = 0FA9368F1BD623F50024D04D /* RD */; settings = {ASSET_TAGS = (); }; };
-		0FA936921BD624610024D04D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 0FA936911BD624610024D04D /* .gitignore */; settings = {ASSET_TAGS = (); }; };
+		0FA936901BD623F50024D04D /* RD in Resources */ = {isa = PBXBuildFile; fileRef = 0FA9368F1BD623F50024D04D /* RD */; };
+		0FA936921BD624610024D04D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 0FA936911BD624610024D04D /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
