@@ -1,26 +1,26 @@
 //
-//  SFNewViewController.m
+//  SFNewMemoViewController.m
 //  SF
 //
 //  Created by penn on 15/10/21.
 //  Copyright © 2015年 SF. All rights reserved.
 //
 
-#import "SFNewViewController.h"
+#import "SFNewMemoViewController.h"
 #import "SFPhotoGroupViewController.h"
 #import "SFTextView.h"
 #import "SFPhotoPickedView.h"
 #import "SFPhotoData.h"
 #import "SFPhotoSaver.h"
 
-@interface SFNewViewController ()<UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, SFPhotoPickedViewDelegate>
+@interface SFNewMemoViewController ()<UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, SFPhotoPickedViewDelegate>
 
 @property (nonatomic, strong) SFTextView *textView;
 @property (nonatomic, strong) SFPhotoPickedView *pickedViews;
 
 @end
 
-@implementation SFNewViewController
+@implementation SFNewMemoViewController
 
 - (void)viewDidLoad {
    
@@ -168,21 +168,5 @@
     
 }
 
-//-(void)sendInfo {
-//    NSLog(@"图片的路径是：%@", filePath);
-//    
-//    NSLog(@"您输入框中的内容是：%@", _textEditor.text);
-//}
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

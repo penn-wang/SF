@@ -1,5 +1,5 @@
 //
-//  SFNewViewController.h
+//  SFNewMemoViewController.h
 //  SF
 //
 //  Created by penn on 15/10/21.
@@ -8,6 +8,6 @@
 
 #import "SFBaseViewController.h"
 
-@interface SFNewViewController : SFBaseViewController
+@interface SFNewMemoViewController : SFBaseViewController
 
 @end

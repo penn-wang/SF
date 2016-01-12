@@ -24,7 +24,6 @@
 		0FA9369E1BD636C60024D04D /* SFHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA9369D1BD636C60024D04D /* SFHomeViewController.m */; };
 		0FA936A21BD63F2E0024D04D /* SFUICreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936A11BD63F2E0024D04D /* SFUICreator.m */; };
 		0FA936A61BD644720024D04D /* SFNavTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936A51BD644720024D04D /* SFNavTitleView.m */; };
-		0FA936AC1BD792430024D04D /* SFNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936AB1BD792430024D04D /* SFNewViewController.m */; };
 		0FA936B31BD7AD2E0024D04D /* UIView+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA936B21BD7AD2E0024D04D /* UIView+Ext.m */; };
 		0FE40ADE1C06129900260D6B /* SFClickImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE40ADD1C06129900260D6B /* SFClickImageView.m */; };
 		0FE40AE11C0616E600260D6B /* SFPhotoSaver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE40AE01C0616E600260D6B /* SFPhotoSaver.m */; };
@@ -37,6 +36,7 @@
 		0FF841EF1BD8C80F00048DC7 /* SFPhotoGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841EE1BD8C80F00048DC7 /* SFPhotoGroupCell.m */; };
 		0FF841F21BD8D3D000048DC7 /* SFPhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841F11BD8D3D000048DC7 /* SFPhotoPickerViewController.m */; };
 		0FF841F61BD8DF5500048DC7 /* SFPhotoPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF841F51BD8DF5500048DC7 /* SFPhotoPickerCell.m */; };
+		8EDC20931C455D2800485332 /* SFNewMemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC20921C455D2800485332 /* SFNewMemoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,8 +73,6 @@
 		0FA936A11BD63F2E0024D04D /* SFUICreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFUICreator.m; path = SFHelper/SFUICreator.m; sourceTree = "<group>"; };
 		0FA936A41BD644720024D04D /* SFNavTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFNavTitleView.h; path = SFViews/SFNavTitleView.h; sourceTree = "<group>"; };
 		0FA936A51BD644720024D04D /* SFNavTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFNavTitleView.m; path = SFViews/SFNavTitleView.m; sourceTree = "<group>"; };
-		0FA936AA1BD792430024D04D /* SFNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFNewViewController.h; path = SFViewController/SFNewViewController.h; sourceTree = "<group>"; };
-		0FA936AB1BD792430024D04D /* SFNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFNewViewController.m; path = SFViewController/SFNewViewController.m; sourceTree = "<group>"; };
 		0FA936B11BD7AD2E0024D04D /* UIView+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Ext.h"; path = "SFCategory/UIView+Ext.h"; sourceTree = "<group>"; };
 		0FA936B21BD7AD2E0024D04D /* UIView+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Ext.m"; path = "SFCategory/UIView+Ext.m"; sourceTree = "<group>"; };
 		0FE40ADC1C06129900260D6B /* SFClickImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFClickImageView.h; path = SFViews/SFClickImageView.h; sourceTree = "<group>"; };
@@ -100,6 +98,8 @@
 		0FF841F31BD8DEC600048DC7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		0FF841F41BD8DF5500048DC7 /* SFPhotoPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFPhotoPickerCell.h; path = SFCommon/SFPhotoPicker/SFPhotoPickerCell.h; sourceTree = "<group>"; };
 		0FF841F51BD8DF5500048DC7 /* SFPhotoPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFPhotoPickerCell.m; path = SFCommon/SFPhotoPicker/SFPhotoPickerCell.m; sourceTree = "<group>"; };
+		8EDC20911C455D2800485332 /* SFNewMemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFNewMemoViewController.h; path = SFViewController/SFNewMemoViewController.h; sourceTree = "<group>"; };
+		8EDC20921C455D2800485332 /* SFNewMemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFNewMemoViewController.m; path = SFViewController/SFNewMemoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,12 +187,12 @@
 		0FA936951BD635C50024D04D /* SFViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8EDC20911C455D2800485332 /* SFNewMemoViewController.h */,
+				8EDC20921C455D2800485332 /* SFNewMemoViewController.m */,
 				0FA936961BD636740024D04D /* SFBaseViewController.h */,
 				0FA936971BD636740024D04D /* SFBaseViewController.m */,
 				0FA9369C1BD636C60024D04D /* SFHomeViewController.h */,
 				0FA9369D1BD636C60024D04D /* SFHomeViewController.m */,
-				0FA936AA1BD792430024D04D /* SFNewViewController.h */,
-				0FA936AB1BD792430024D04D /* SFNewViewController.m */,
 			);
 			name = SFViewController;
 			sourceTree = "<group>";
@@ -353,7 +353,6 @@
 				0FE40AEA1C06260C00260D6B /* SFPhotoData.m in Sources */,
 				0F6162251B9BE61B00E07628 /* AppDelegate.m in Sources */,
 				0FF841EF1BD8C80F00048DC7 /* SFPhotoGroupCell.m in Sources */,
-				0FA936AC1BD792430024D04D /* SFNewViewController.m in Sources */,
 				0FE50C301BE06EBC00B33CBE /* SFPhotoPickerHelper.m in Sources */,
 				0FE40AE71C061B1E00260D6B /* SFHelper.m in Sources */,
 				0FA936B31BD7AD2E0024D04D /* UIView+Ext.m in Sources */,
@@ -361,6 +360,7 @@
 				0F2985D41B9D8A3300D13E97 /* SFDBHelper.m in Sources */,
 				0F6162221B9BE61B00E07628 /* main.m in Sources */,
 				0FF841EA1BD8C0F200048DC7 /* SFPhotoGroupViewController.m in Sources */,
+				8EDC20931C455D2800485332 /* SFNewMemoViewController.m in Sources */,
 				0FA936A21BD63F2E0024D04D /* SFUICreator.m in Sources */,
 				0FE40ADE1C06129900260D6B /* SFClickImageView.m in Sources */,
 				0F4034C01BDE29DA00986C75 /* UIImage+Scale.m in Sources */,

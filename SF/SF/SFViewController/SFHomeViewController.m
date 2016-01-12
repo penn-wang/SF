@@ -8,7 +8,7 @@
 
 #import "SFHomeViewController.h"
 #import "SFNavTitleView.h"
-#import "SFNewViewController.h"
+#import "SFNewMemoViewController.h"
 
 @interface SFHomeViewController()  <UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate
 ,SFNavTitleViewDelegate>
@@ -40,7 +40,7 @@
 }
 
 - (void)didClickOnRigthNavItem {
-    SFNewViewController *vc = [[SFNewViewController alloc] init];
+    SFNewMemoViewController *vc = [[SFNewMemoViewController alloc] init];
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:navVC animated:YES completion:nil];
 }
