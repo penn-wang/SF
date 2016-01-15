@@ -71,7 +71,8 @@ static const NSInteger imageBtnTag = 10000;
     }
     NSInteger count = _dataMutArray.count;
     NSInteger addX = count%_numbers;
-    NSInteger addY = count%_numbers==0?count/_numbers+1:count/_numbers+0;
+//    NSInteger addY = count%_numbers==0?count/_numbers+1:count/_numbers+0;
+    NSInteger addY = count/_numbers;
     [self addAddButton:CGRectMake(_margin+(_margin+_perLength)*addX, _margin/2+(_margin/2+_perLength)*addY, _perLength, _perLength)];
 }
 

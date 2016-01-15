@@ -48,8 +48,6 @@
     self.pickedViews.backgroundColor = [UIColor grayColor];
     self.pickedViews.delegate = self;
     [self.view addSubview:self.pickedViews];
-    
-    
 }
 
 - (void)addNotification {
