@@ -22,8 +22,8 @@ static const NSInteger imageBtnTag = 10000;
     NSInteger _numbers;
     
     NSMutableArray *_dataMutArray;
-
 }
+
 @end
 
 @implementation SFPhotoPickedView
@@ -84,7 +84,6 @@ static const NSInteger imageBtnTag = 10000;
     CGRect rect = self.frame;
     self.frame = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, [self getHeight]);
 }
-
 
 - (CGFloat)getHeight {
     NSInteger count = _dataMutArray.count;

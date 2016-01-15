@@ -15,13 +15,6 @@ static const CGFloat cellPerMargin = 5;
 const NSInteger cellImageMaxCount = 4;
 static const NSInteger cellImageTag = 100000;
 
-typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
-    E_Cell_Type_OneImg,
-    E_Cell_Type_TwoImg,
-    E_Cell_Type_ThreeImg,
-    E_Cell_Type_FourImg
-};
-
 @implementation SFPhotoCellImageData
 
 - (id)initWithImage:(UIImage *)image status:(BOOL)isPicked {
@@ -55,7 +48,7 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
     return self;
 }
 
-- (void)layOutViews:(CGRect)frame{
+- (void)layOutViews:(CGRect)frame {
     self.frame = frame;
     self.imageBtn.frame = self.bounds;
     CGFloat margin = 5;
@@ -99,7 +92,7 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
 
 - (void)didClickOnPicker:(id)sender {
     if (!self.status) {
-        if ([SFPhotoSaver sharedPhotoSaver].savedPhotoCount >= 5) {
+        if ([SFPhotoSaver sharedPhotoSaver].savedPhotoCount >= [[SFSettings sharedSettings] photoCapacity]) {
             if (self.delegate && [self.delegate respondsToSelector:@selector(didFullPhoto)]) {
                 [self.delegate didFullPhoto];
             }
@@ -134,7 +127,6 @@ typedef NS_ENUM(NSInteger, SFPhotoPickerCellType) {
     PPCellImage *_thirdImage;
     PPCellImage *_fourImage;
     
-    SFPhotoPickerCellType _type;
 }
 
 @end

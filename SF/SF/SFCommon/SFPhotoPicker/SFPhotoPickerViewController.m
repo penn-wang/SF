@@ -37,18 +37,20 @@ const NSString *photoSavedNotifiCation = @"photoSavedNotifiCation";
     [self.view addSubview:self.tableView];
     self.pickedPhotos = [[NSMutableArray alloc] init];
     
-    NSLog(@"%@", [SFHelper timeStampOfNow]);
 }
 
 - (void)didClickOnRigthNavItem {
+    
     if (self.pickedPhotos.count<=0) {
         return;
     }
     for (int i=0; i<self.pickedPhotos.count; i++) {
         [[SFPhotoSaver sharedPhotoSaver] savePhoto:self.pickedPhotos[i]];
     }
-    [self popToViewControllerWithName:@"SFNewViewController"];
+    [self popToViewControllerWithName:@"SFNewMemoViewController"];
     [SFPhotoSaver sharedPhotoSaver].savedPhotoCount = 0;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:SFNotification_Did_SavePhoto object:self.pickedPhotos];
 }
 
 - (void)didClickOnLeftNavItem {
@@ -147,7 +149,9 @@ const NSString *photoSavedNotifiCation = @"photoSavedNotifiCation";
 }
 
 - (void)cannotPickerPhoto {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"最多选择五张图片"                                                                             message:@"最多选择五张图片"                                                                       preferredStyle:UIAlertControllerStyleAlert];
+    NSString *msg = [NSString stringWithFormat:@"最多选择%zd张图片", Setting_Default_Photo_Capacity];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:msg                                                                             message:msg
+        preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertController animated:YES completion:nil];
 }

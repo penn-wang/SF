@@ -17,17 +17,29 @@
 
 @property (nonatomic, strong) SFTextView *textView;
 @property (nonatomic, strong) SFPhotoPickedView *pickedViews;
+@property (nonatomic, assign) BOOL isNeedLoadView;
+
 
 @end
 
 @implementation SFNewMemoViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
 - (void)viewDidLoad {
-   
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self leftNavItemCancel];
     [self rightNavItemWithName:@"保存"];
+    [self addNotification];
+    [SFSettings sharedSettings].photoCapacity = 5;
     self.textView = [[SFTextView alloc] initWithFrame:CGRectMake(10, self.navOffset+10, self.screenWidth-20, 100) placeHolder:@"请输入内容"];
     self.textView.backgroundColor = [UIColor greenColor];
     [self.view addSubview:self.textView];
@@ -37,16 +49,15 @@
     self.pickedViews.delegate = self;
     [self.view addSubview:self.pickedViews];
     
-    NSMutableArray *testArray = [[NSMutableArray alloc] init];
-    for (NSInteger i=0; i<5; i++) {
-        UIImage *image = [UIImage imageNamed:@"photo_picker_no"];
-        SFPhotoData *data = [[SFPhotoData alloc] init];
-        data.bigImage = image;
-        data.smallImage = image;
+}
 
-        [testArray addObject:data];
-    }
-    [self.pickedViews addPhotoImageViews:testArray];
+- (void)addNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didNotifySavedPhoto:) name:SFNotification_Did_SavePhoto object:nil];
+}
+
+- (void)didNotifySavedPhoto:(NSNotification *)notification {
+    NSArray *receiveObj = (NSArray *)[notification object];
+    [self.pickedViews addPhotoImageViews:receiveObj];
 }
 
 - (void)didClickOnLeftNavItem {
