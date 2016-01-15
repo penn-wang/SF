@@ -17,8 +17,7 @@
 
 @property (nonatomic, strong) SFTextView *textView;
 @property (nonatomic, strong) SFPhotoPickedView *pickedViews;
-@property (nonatomic, assign) BOOL isNeedLoadView;
-
+@property (nonatomic, assign) NSInteger hasSavedPhotoCount;
 
 @end
 
@@ -33,13 +32,14 @@
 }
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
+    [SFPhotoSaver sharedPhotoSaver].photoCapacity = Photo_Max_Capacity;
+    self.hasSavedPhotoCount = 0;
     // Do any additional setup after loading the view.
     [self leftNavItemCancel];
     [self rightNavItemWithName:@"保存"];
     [self addNotification];
-    [SFSettings sharedSettings].photoCapacity = 5;
+
     self.textView = [[SFTextView alloc] initWithFrame:CGRectMake(10, self.navOffset+10, self.screenWidth-20, 100) placeHolder:@"请输入内容"];
     self.textView.backgroundColor = [UIColor greenColor];
     [self.view addSubview:self.textView];
@@ -48,6 +48,7 @@
     self.pickedViews.backgroundColor = [UIColor grayColor];
     self.pickedViews.delegate = self;
     [self.view addSubview:self.pickedViews];
+    
     
 }
 
@@ -58,6 +59,7 @@
 - (void)didNotifySavedPhoto:(NSNotification *)notification {
     NSArray *receiveObj = (NSArray *)[notification object];
     [self.pickedViews addPhotoImageViews:receiveObj];
+    self.hasSavedPhotoCount += receiveObj.count;
 }
 
 - (void)didClickOnLeftNavItem {
@@ -166,9 +168,9 @@
         [self takePhoto];
     }]];
     [alertController addAction: [UIAlertAction actionWithTitle: @"从相册选取" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-        //        [self LocalPhoto];
         SFPhotoGroupViewController *photoGroup = [[SFPhotoGroupViewController alloc] init];
         [self.navigationController pushViewController:photoGroup animated:YES];
+        [SFPhotoSaver sharedPhotoSaver].photoCapacity = Photo_Max_Capacity-self.hasSavedPhotoCount;
     }]];
     [alertController addAction: [UIAlertAction actionWithTitle: @"取消" style: UIAlertActionStyleCancel handler:nil]];
     

@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+#define Photo_Max_Capacity  5
+
 @class SFPhotoData;
 
 @interface SFPhotoSaver : NSObject
 
-@property (nonatomic, assign) NSInteger savedPhotoCount;
+@property (nonatomic, assign) NSInteger photoCapacity;
 
 + (SFPhotoSaver *)sharedPhotoSaver;
 

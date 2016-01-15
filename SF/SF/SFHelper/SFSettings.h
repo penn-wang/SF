@@ -12,8 +12,6 @@
 
 @interface SFSettings : NSObject
 
-@property (nonatomic, assign) NSInteger photoCapacity;
-
 + (SFSettings *)sharedSettings;
 
 @end

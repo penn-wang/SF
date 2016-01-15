@@ -11,4 +11,6 @@
 
 #define SFNotification_Did_SavePhoto    @"SFNotification_Did_SavePhoto"
 
+#define SFNotification_Photo_Capacity   @"SFNotification_Photo_Capacity"
+
 #endif /* SFNotification_h */

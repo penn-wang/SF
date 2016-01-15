@@ -48,14 +48,12 @@ const NSString *photoSavedNotifiCation = @"photoSavedNotifiCation";
         [[SFPhotoSaver sharedPhotoSaver] savePhoto:self.pickedPhotos[i]];
     }
     [self popToViewControllerWithName:@"SFNewMemoViewController"];
-    [SFPhotoSaver sharedPhotoSaver].savedPhotoCount = 0;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:SFNotification_Did_SavePhoto object:self.pickedPhotos];
 }
 
 - (void)didClickOnLeftNavItem {
     [super didClickOnLeftNavItem];
-    [SFPhotoSaver sharedPhotoSaver].savedPhotoCount = 0;
 }
 
 #pragma -mark -
@@ -149,8 +147,8 @@ const NSString *photoSavedNotifiCation = @"photoSavedNotifiCation";
 }
 
 - (void)cannotPickerPhoto {
-    NSString *msg = [NSString stringWithFormat:@"最多选择%zd张图片", Setting_Default_Photo_Capacity];
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:msg                                                                             message:msg
+    NSString *msg = [NSString stringWithFormat:@"最多选择%zd张图片", Photo_Max_Capacity];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:msg                                                                             message:@""
         preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alertController animated:YES completion:nil];

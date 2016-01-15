@@ -19,7 +19,7 @@ static SFSettings *_sharedSettings = nil;
     });
     return _sharedSettings;
 }
-+ (instancetype)sharedDBWorker {
++ (instancetype)sharedSettings {
     static dispatch_once_t once;
     dispatch_once(&once, ^(void){
         _sharedSettings = [[self alloc] init];
@@ -29,5 +29,6 @@ static SFSettings *_sharedSettings = nil;
 - (id)copyWithZone:(NSZone *)zone {
     return _sharedSettings;
 }
+
 
 @end

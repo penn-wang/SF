@@ -18,7 +18,6 @@ static SFPhotoSaver *_sharedPhotoSaver;
 
 - (id) init {
     if (self = [super init]) {
-        self.savedPhotoCount = 0;
     }
     return self;
 }

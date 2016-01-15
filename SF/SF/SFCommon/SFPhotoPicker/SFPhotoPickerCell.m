@@ -92,18 +92,20 @@ static const NSInteger cellImageTag = 100000;
 
 - (void)didClickOnPicker:(id)sender {
     if (!self.status) {
-        if ([SFPhotoSaver sharedPhotoSaver].savedPhotoCount >= [[SFSettings sharedSettings] photoCapacity]) {
+        if ([SFPhotoSaver sharedPhotoSaver].photoCapacity == 0) {
             if (self.delegate && [self.delegate respondsToSelector:@selector(didFullPhoto)]) {
                 [self.delegate didFullPhoto];
             }
             return;
         }
-        [SFPhotoSaver sharedPhotoSaver].savedPhotoCount++;
     }
     self.status = !self.status;
-    if (!self.status) {
-        [SFPhotoSaver sharedPhotoSaver].savedPhotoCount--;
+    if (self.status) {
+        [SFPhotoSaver sharedPhotoSaver].photoCapacity--;
+    } else {
+        [SFPhotoSaver sharedPhotoSaver].photoCapacity++;
     }
+    NSLog(@"capacity: %zd", [SFPhotoSaver sharedPhotoSaver].photoCapacity);
     if(self.status) {
         self.pickerImageView.image = [UIImage imageNamed:@"photo_picker_yes"];
     } else {
